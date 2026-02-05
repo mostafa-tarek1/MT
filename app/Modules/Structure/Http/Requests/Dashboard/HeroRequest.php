@@ -21,53 +21,43 @@ class HeroRequest extends FormRequest
      */
     public function rules(): array
     {
-        $rules = [
-            'ar.title_primary' => 'required|string|max:255',
-            'ar.title_accent' => 'nullable|string|max:255',
-            'ar.subtitle' => 'required|string',
-            'ar.button_text' => 'required|string|max:255',
-            'ar.button_link' => 'nullable|url|max:500',
-            'en.title_primary' => 'required|string|max:255',
-            'en.title_accent' => 'nullable|string|max:255',
-            'en.subtitle' => 'required|string',
-            'en.button_text' => 'required|string|max:255',
-            'en.button_link' => 'nullable|url|max:500',
+        return [
+            'ar.title' => 'nullable|string|max:255',
+            'en.title' => 'nullable|string|max:255',
+            'ar.highlight' => 'nullable|string|max:255',
+            'en.highlight' => 'nullable|string|max:255',
+            'ar.description' => 'nullable|string',
+            'en.description' => 'nullable|string',
+            'ar.primary_button_text' => 'nullable|string|max:255',
+            'en.primary_button_text' => 'nullable|string|max:255',
+            'ar.primary_button_link' => 'nullable|url|max:500',
+            'en.primary_button_link' => 'nullable|url|max:500',
+            'ar.secondary_button_text' => 'nullable|string|max:255',
+            'en.secondary_button_text' => 'nullable|string|max:255',
+            'ar.secondary_button_link' => 'nullable|url|max:500',
+            'en.secondary_button_link' => 'nullable|url|max:500',
             'file.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ];
-
-        // Add validation for client logos (using file array structure)
-        $clientLogos = old('all.client_logos', $this->input('en.client_logos', []));
-        if (is_array($clientLogos) && count($clientLogos) > 0) {
-            foreach ($clientLogos as $index => $logo) {
-                $fileId = 1000 + $index;
-                $oldFile = $this->input("old_file.{$fileId}");
-                
-                if (empty($oldFile)) {
-                    $rules["file.{$fileId}"] = 'required|image|mimes:jpeg,png,jpg,gif,webp|max:2048';
-                } else {
-                    $rules["file.{$fileId}"] = 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048';
-                }
-            }
-        }
-
-        return $rules;
     }
 
     public function attributes(): array
     {
         return [
-            'ar.title_primary' => 'العنوان الرئيسي (عربي)',
-            'ar.title_accent' => 'العنوان المميز (عربي)',
-            'ar.subtitle' => 'العنوان الفرعي (عربي)',
-            'ar.button_text' => 'نص الزر (عربي)',
-            'ar.button_link' => 'رابط الزر (عربي)',
-            'en.title_primary' => 'Title Primary (English)',
-            'en.title_accent' => 'Title Accent (English)',
-            'en.subtitle' => 'Subtitle (English)',
-            'en.button_text' => 'Button Text (English)',
-            'en.button_link' => 'Button Link (English)',
+            'ar.title' => 'العنوان (عربي)',
+            'ar.highlight' => 'العنوان المميز (عربي)',
+            'ar.description' => 'الوصف (عربي)',
+            'ar.primary_button_text' => 'نص الزر الأساسي (عربي)',
+            'ar.primary_button_link' => 'رابط الزر الأساسي (عربي)',
+            'ar.secondary_button_text' => 'نص الزر الثانوي (عربي)',
+            'ar.secondary_button_link' => 'رابط الزر الثانوي (عربي)',
+            'en.title' => 'Title (English)',
+            'en.highlight' => 'Highlight (English)',
+            'en.description' => 'Description (English)',
+            'en.primary_button_text' => 'Primary Button Text (English)',
+            'en.primary_button_link' => 'Primary Button Link (English)',
+            'en.secondary_button_text' => 'Secondary Button Text (English)',
+            'en.secondary_button_link' => 'Secondary Button Link (English)',
             'file.*' => 'الصورة المرفقة',
-            'client_logos.*' => 'شعار العميل',
         ];
     }
 }

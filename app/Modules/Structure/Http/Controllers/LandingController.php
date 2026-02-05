@@ -16,26 +16,24 @@ class LandingController extends Controller
 
     public function index()
     {
-        $hero = $this->structureService->get('hero', data_needed: true);
         $header = $this->structureService->get('header', data_needed: true);
-        $features = $this->structureService->get('features', data_needed: true);
-        $whoIsThisFor = $this->structureService->get('who_is_this_for', data_needed: true);
-        $flexibleSystem = $this->structureService->get('flexible_system', data_needed: true);
-        $customerReviews = $this->structureService->get('customer_reviews', data_needed: true);
+        $hero = $this->structureService->get('hero', data_needed: true);
+        $stats = $this->structureService->get('stats', data_needed: true);
+        $services = $this->structureService->get('services', data_needed: true);
+        $whyChooseUs = $this->structureService->get('why_choose_us', data_needed: true);
         $cta = $this->structureService->get('cta', data_needed: true);
-        $contact = $this->structureService->get('contact', data_needed: true);
         $footer = $this->structureService->get('footer', data_needed: true);
+        $quoteModal = $this->structureService->get('quote_modal', data_needed: true);
 
         return view('structure::landing', compact(
-            'hero',
             'header',
-            'features',
-            'whoIsThisFor',
-            'flexibleSystem',
-            'customerReviews',
+            'hero',
+            'stats',
+            'services',
+            'whyChooseUs',
             'cta',
-            'contact',
-            'footer'
+            'footer',
+            'quoteModal'
         ));
     }
 }

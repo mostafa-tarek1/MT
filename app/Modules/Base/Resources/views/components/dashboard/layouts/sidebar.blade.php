@@ -28,12 +28,18 @@
 
             {{-- Website Content Management --}}
             <li
-                class="nav-item has-sub {{ Route::is('hero.*') || Route::is('features.*') || Route::is('who_is_this_for.*') || Route::is('flexible_system.*') || Route::is('customer_reviews.*') || Route::is('cta.*') || Route::is('contact.*') || Route::is('contact-messages.*') ? 'open' : '' }}">
+                class="nav-item has-sub {{ Route::is('header.*') || Route::is('hero.*') || Route::is('stats.*') || Route::is('services.*') || Route::is('why_choose_us.*') || Route::is('cta.*') || Route::is('footer.*') || Route::is('quote_modal.*') || Route::is('contact-messages.*') || Route::is('quote-requests.*') ? 'open' : '' }}">
                 <a href="#">
                     <i class="feather icon-layout"></i>
                     <span class="menu-title" data-i18n="Structures">{{ __('dashboard.Structures') }}</span>
                 </a>
                 <ul class="menu-content">
+                    <li class="{{ Route::is('header.*') ? 'active' : '' }}">
+                        <a href="{{ route('header.index') }}">
+                            <i class="feather icon-zap"></i>
+                            <span class="menu-item" data-i18n="Header">{{ __('dashboard.Header Section') }}</span>
+                        </a>
+                    </li>
 
                     <li class="{{ Route::is('hero.*') ? 'active' : '' }}">
                         <a href="{{ route('hero.index') }}">
@@ -42,32 +48,25 @@
                         </a>
                     </li>
 
-                    <li class="{{ Route::is('features.*') ? 'active' : '' }}">
-                        <a href="{{ route('features.index') }}">
+                    <li class="{{ Route::is('stats.*') ? 'active' : '' }}">
+                        <a href="{{ route('stats.index') }}">
                             <i class="feather icon-zap"></i>
-                            <span class="menu-item" data-i18n="Features">{{ __('dashboard.Features Section') }}</span>
+                            <span class="menu-item" data-i18n="Stats">{{ __('dashboard.Stats Section') }}</span>
                         </a>
                     </li>
 
-                    <li class="{{ Route::is('who_is_this_for.*') ? 'active' : '' }}">
-                        <a href="{{ route('who_is_this_for.index') }}">
+                    <li class="{{ Route::is('services.*') ? 'active' : '' }}">
+                        <a href="{{ route('services.index') }}">
                             <i class="feather icon-zap"></i>
-                            <span class="menu-item"
-                                data-i18n="Who Is This For">{{ __('dashboard.Who Is This For Section') }}</span>
+                            <span class="menu-item" data-i18n="Services">{{ __('dashboard.Services Section') }}</span>
                         </a>
                     </li>
-                    <li class="{{ Route::is('flexible_system.*') ? 'active' : '' }}">
-                        <a href="{{ route('flexible_system.index') }}">
+
+                    <li class="{{ Route::is('why_choose_us.*') ? 'active' : '' }}">
+                        <a href="{{ route('why_choose_us.index') }}">
                             <i class="feather icon-zap"></i>
                             <span class="menu-item"
-                                data-i18n="Flexible System">{{ __('dashboard.Flexible System Section') }}</span>
-                        </a>
-                    </li>
-                    <li class="{{ Route::is('customer_reviews.*') ? 'active' : '' }}">
-                        <a href="{{ route('customer_reviews.index') }}">
-                            <i class="feather icon-zap"></i>
-                            <span class="menu-item"
-                                data-i18n="Customer Reviews">{{ __('dashboard.Customer Reviews Section') }}</span>
+                                data-i18n="Why Choose Us">{{ __('dashboard.Why Choose Us Section') }}</span>
                         </a>
                     </li>
 
@@ -79,17 +78,32 @@
                         </a>
                     </li>
 
-                    <li class="{{ Route::is('contact.*') ? 'active' : '' }}">
-                        <a href="{{ route('contact.index') }}">
+                    <li class="{{ Route::is('footer.*') ? 'active' : '' }}">
+                        <a href="{{ route('footer.index') }}">
                             <i class="feather icon-zap"></i>
-                            <span class="menu-item" data-i18n="Contact">{{ __('dashboard.Contact Section') }}</span>
+                            <span class="menu-item" data-i18n="Footer">{{ __('dashboard.Footer Section') }}</span>
                         </a>
                     </li>
+
+                    <li class="{{ Route::is('quote_modal.*') ? 'active' : '' }}">
+                        <a href="{{ route('quote_modal.index') }}">
+                            <i class="feather icon-zap"></i>
+                            <span class="menu-item" data-i18n="Quote Modal">{{ __('dashboard.Quote Modal') }}</span>
+                        </a>
+                    </li>
+
                     <li class="{{ Route::is('contact-messages.*') ? 'active' : '' }}">
                         <a href="{{ route('contact-messages.index') }}">
                             <i class="feather icon-zap"></i>
                             <span class="menu-item"
                                 data-i18n="Contact Messages">{{ __('dashboard.Contact Messages') }}</span>
+                        </a>
+                    </li>
+                    <li class="{{ Route::is('quote-requests.*') ? 'active' : '' }}">
+                        <a href="{{ route('quote-requests.index') }}">
+                            <i class="feather icon-zap"></i>
+                            <span class="menu-item"
+                                data-i18n="Quote Requests">{{ __('dashboard.Quote Requests') }}</span>
                         </a>
                     </li>
 

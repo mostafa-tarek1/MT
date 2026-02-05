@@ -49,6 +49,62 @@
         <script src="{{ asset('assets/js/lucide.min.js') }}"></script>
     </head>
     <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
+        @php
+            $navItems = $header['nav_items'] ?? [
+                ['text' => 'الرئيسية', 'href' => '#'],
+                ['text' => 'خدماتنا', 'href' => '#services'],
+                ['text' => 'عن الشركة', 'href' => '#about'],
+                ['text' => 'تواصل معنا', 'href' => '#contact'],
+            ];
+            $statsItems = $stats['items'] ?? [
+                ['label' => 'عملية توريد ناجحة', 'value' => '+950'],
+                ['label' => 'سنة التأسيس', 'value' => '2020'],
+                ['label' => 'شريك حكومي وخاص', 'value' => 'مصر'],
+            ];
+            $servicesItems = $services['items'] ?? [
+                [
+                    'title' => 'التوريدات العامة',
+                    'text' => 'توريد كافة أنواع المنتجات والمستلزمات للجهات الحكومية والشركات الخاصة بكفاءة عالية والتزام بالمواعيد.',
+                    'image' => asset('assets/images/service-supplies-6e85b43264fc4796b56cbd4a7da56a03.png'),
+                ],
+                [
+                    'title' => 'الاستثمار',
+                    'text' => 'دراسة الفرص الاستثمارية وتقديم حلول مالية ذكية تساهم في نمو الأعمال وتحقيق العوائد المستدامة.',
+                    'image' => asset('assets/images/service-investment-3a40eacbda9844c6bd7685cab1fffd69.png'),
+                ],
+                [
+                    'title' => 'تكنولوجيا المعلومات',
+                    'text' => 'توفير أحدث الحلول التقنية والأنظمة المعلوماتية لدعم التحول الرقمي وتطوير البنية التحتية التكنولوجية.',
+                    'image' => asset('assets/images/service-it-021ed80e44b54fbb8e023bf6fc1cabe1.png'),
+                ],
+            ];
+            $whyItems = $whyChooseUs['items'] ?? [
+                [
+                    'title' => 'الامتثال للمعايير المصرية',
+                    'text' => 'نلتزم تماماً بكافة اللوائح والقوانين المنظمة لعمليات التوريد الحكومية في مصر، لضمان سير العمليات بسلاسة ودون تعقيدات.',
+                ],
+                [
+                    'title' => 'سرعة وكفاءة التوريد',
+                    'text' => 'ندرك أهمية الوقت في المشاريع الكبرى، لذا نضمن توريد المنتجات التكنولوجية والعامة في المواعيد المحددة بدقة متناهية.',
+                ],
+                [
+                    'title' => 'تنوع وتكامل الخدمات',
+                    'text' => 'من حلول تكنولوجيا المعلومات إلى التوريدات العامة والاستثمار، نقدم محفظة خدمات شاملة تغطي كافة احتياجات مؤسستك.',
+                ],
+            ];
+            $footerQuickLinks = $footer['quick_links'] ?? [
+                ['text' => 'الرئيسية', 'href' => '#'],
+                ['text' => 'من نحن', 'href' => '#about'],
+                ['text' => 'خدماتنا', 'href' => '#services'],
+                ['text' => 'تواصل معنا', 'href' => '#contact'],
+            ];
+            $footerServicesLinks = $footer['services_links'] ?? [
+                ['text' => 'التوريدات العامة', 'href' => '#'],
+                ['text' => 'الاستثمار', 'href' => '#'],
+                ['text' => 'تكنولوجيا المعلومات', 'href' => '#'],
+                ['text' => 'المناقصات الحكومية', 'href' => '#'],
+            ];
+        @endphp
 
         <!-- Header -->
         <header class="bg-white shadow-sm sticky top-0 z-50">
@@ -58,23 +114,25 @@
                     <div class="flex-shrink-0 flex items-center">
                         <a href="#" class="text-2xl font-bold text-primary flex items-center gap-2">
                             <i data-lucide="package" class="w-8 h-8 text-secondary"></i>
-                            <span>MT Egypt</span>
+                            <span>{{ $header['brand_text'] ?? 'MT Egypt' }}</span>
                         </a>
                     </div>
 
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-8 space-x-reverse">
-                        <a href="#" class="text-gray-600 hover:text-primary font-medium transition">الرئيسية</a>
-                        <a href="#services" class="text-gray-600 hover:text-primary font-medium transition">خدماتنا</a>
-                        <a href="#about" class="text-gray-600 hover:text-primary font-medium transition">عن الشركة</a>
-                        <a href="#contact" class="text-gray-600 hover:text-primary font-medium transition">تواصل معنا</a>
+                        @foreach ($navItems as $navItem)
+                            <a href="{{ $navItem['href'] ?? '#' }}"
+                                class="text-gray-600 hover:text-primary font-medium transition">
+                                {{ $navItem['text'] ?? '' }}
+                            </a>
+                        @endforeach
                     </nav>
 
                     <!-- CTA Button -->
                     <div class="hidden md:flex items-center">
                         <button onclick="openModal()"
                             class="bg-primary hover:bg-blue-800 text-white px-5 py-2.5 rounded-md font-semibold transition shadow-md cursor-pointer">
-                            اطلب عرض سعر
+                            {{ $header['cta_text'] ?? 'اطلب عرض سعر' }}
                         </button>
                     </div>
 
@@ -95,27 +153,27 @@
                     <div class="grid gap-12 lg:grid-cols-2 lg:items-center">
                         <div class="text-right">
                             <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
-                                شريكك الاستراتيجي في <span class="text-blue-700">التوريدات والاستثمار</span>
+                                {{ $hero['title'] ?? 'شريكك الاستراتيجي في' }}
+                                <span class="text-blue-700">{{ $hero['highlight'] ?? 'التوريدات والاستثمار' }}</span>
                             </h1>
                             <p class="mt-6 text-lg leading-8 text-slate-600">
-                                نقدم حلولاً متكاملة في مجالات التوريدات العامة، الاستثمار، وتكنولوجيا المعلومات. نعتز بخدمة
-                                القطاعين الحكومي والخاص في مصر منذ عام 2020.
+                                {{ $hero['description'] ?? 'نقدم حلولاً متكاملة في مجالات التوريدات العامة، الاستثمار، وتكنولوجيا المعلومات. نعتز بخدمة القطاعين الحكومي والخاص في مصر منذ عام 2020.' }}
                             </p>
                             <div class="mt-8 flex flex-wrap gap-4">
                                 <button onclick="openModal()"
                                     class="rounded-lg bg-blue-700 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 cursor-pointer">
-                                    تواصل معنا الآن
+                                    {{ $hero['primary_button_text'] ?? 'تواصل معنا الآن' }}
                                 </button>
-                                <a href="#services"
+                                <a href="{{ $hero['secondary_button_link'] ?? '#services' }}"
                                     class="rounded-lg border border-slate-300 bg-white px-6 py-3 text-base font-semibold text-slate-700 shadow-sm hover:bg-slate-50">
-                                    خدماتنا
+                                    {{ $hero['secondary_button_text'] ?? 'خدماتنا' }}
                                 </a>
                             </div>
                         </div>
                         <div class="relative lg:order-last">
                             <div class="relative overflow-hidden rounded-2xl shadow-xl">
                                 <img
-                                    src="{{ asset('assets/images/hero-business-meeting-d90bd3414b884a6dbc30afaa9a52b3c4.png') }}"
+                                    src="{{ $hero['image'] ?? asset('assets/images/hero-business-meeting-d90bd3414b884a6dbc30afaa9a52b3c4.png') }}"
                                     alt="اجتماع عمل احترافي" width="1200" height="900"
                                     class="h-full w-full object-cover" loading="eager">
                             </div>
@@ -127,94 +185,66 @@
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="mx-auto max-w-4xl text-center">
                         <h2 class="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                            أرقام تتحدث عن إنجازاتنا
+                            {{ $stats['title'] ?? 'أرقام تتحدث عن إنجازاتنا' }}
                         </h2>
                         <p class="mt-3 text-xl text-blue-200">
-                            مسيرة حافلة بالنجاح والثقة المتبادلة مع شركائنا في النجاح.
+                            {{ $stats['subtitle'] ?? 'مسيرة حافلة بالنجاح والثقة المتبادلة مع شركائنا في النجاح.' }}
                         </p>
                     </div>
                     <dl class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
-                        <div class="flex flex-col items-center rounded-xl bg-white/10 p-8 text-center backdrop-blur-sm">
-                            <dt class="order-2 mt-2 text-lg font-medium leading-6 text-blue-200">عملية توريد ناجحة</dt>
-                            <dd class="order-1 text-5xl font-extrabold tracking-tight text-white">+950</dd>
-                        </div>
-                        <div class="flex flex-col items-center rounded-xl bg-white/10 p-8 text-center backdrop-blur-sm">
-                            <dt class="order-2 mt-2 text-lg font-medium leading-6 text-blue-200">سنة التأسيس</dt>
-                            <dd class="order-1 text-5xl font-extrabold tracking-tight text-white">2020</dd>
-                        </div>
-                        <div class="flex flex-col items-center rounded-xl bg-white/10 p-8 text-center backdrop-blur-sm">
-                            <dt class="order-2 mt-2 text-lg font-medium leading-6 text-blue-200">شريك حكومي وخاص</dt>
-                            <dd class="order-1 text-5xl font-extrabold tracking-tight text-white">مصر</dd>
-                        </div>
+                        @foreach ($statsItems as $item)
+                            <div class="flex flex-col items-center rounded-xl bg-white/10 p-8 text-center backdrop-blur-sm">
+                                <dt class="order-2 mt-2 text-lg font-medium leading-6 text-blue-200">
+                                    {{ $item['label'] ?? '' }}
+                                </dt>
+                                <dd class="order-1 text-5xl font-extrabold tracking-tight text-white">
+                                    {{ $item['value'] ?? '' }}
+                                </dd>
+                            </div>
+                        @endforeach
                     </dl>
                 </div>
             </section>
             <section id="services" dir="rtl" class="bg-slate-50 py-16 sm:py-24">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl text-center">
-                        <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">مجالات عملنا الرئيسية</h2>
+                        <h2 class="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+                            {{ $services['title'] ?? 'مجالات عملنا الرئيسية' }}
+                        </h2>
                         <p class="mt-4 text-lg text-slate-600">
-                            نقدم مجموعة متكاملة من الخدمات التي تلبي احتياجات السوق المصري بأعلى معايير الجودة.
+                            {{ $services['subtitle'] ?? 'نقدم مجموعة متكاملة من الخدمات التي تلبي احتياجات السوق المصري بأعلى معايير الجودة.' }}
                         </p>
                     </div>
                     <div class="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-                        <div class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow hover:shadow-xl">
-                            <div class="relative h-48">
-                                <img src="{{ asset('assets/images/service-supplies-6e85b43264fc4796b56cbd4a7da56a03.png') }}"
-                                    alt="التوريدات العامة" width="1200" height="800" class="h-full w-full object-cover"
-                                    loading="lazy">
+                        @foreach ($servicesItems as $service)
+                            <div class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow hover:shadow-xl">
+                                <div class="relative h-48">
+                                    <img src="{{ $service['image'] ?? '' }}" alt="{{ $service['title'] ?? '' }}"
+                                        width="1200" height="800" class="h-full w-full object-cover" loading="lazy">
+                                </div>
+                                <div class="flex flex-1 flex-col p-6">
+                                    <h3 class="text-xl font-bold text-slate-900">{{ $service['title'] ?? '' }}</h3>
+                                    <p class="mt-3 flex-1 text-base text-slate-600">
+                                        {!! $service['text'] ?? '' !!}
+                                    </p>
+                                </div>
                             </div>
-                            <div class="flex flex-1 flex-col p-6">
-                                <h3 class="text-xl font-bold text-slate-900">التوريدات العامة</h3>
-                                <p class="mt-3 flex-1 text-base text-slate-600">
-                                    توريد كافة أنواع المنتجات والمستلزمات للجهات الحكومية والشركات الخاصة بكفاءة عالية والتزام
-                                    بالمواعيد.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow hover:shadow-xl">
-                            <div class="relative h-48">
-                                <img src="{{ asset('assets/images/service-investment-3a40eacbda9844c6bd7685cab1fffd69.png') }}"
-                                    alt="الاستثمار" width="1200" height="800" class="h-full w-full object-cover" loading="lazy">
-                            </div>
-                            <div class="flex flex-1 flex-col p-6">
-                                <h3 class="text-xl font-bold text-slate-900">الاستثمار</h3>
-                                <p class="mt-3 flex-1 text-base text-slate-600">
-                                    دراسة الفرص الاستثمارية وتقديم حلول مالية ذكية تساهم في نمو الأعمال وتحقيق العوائد
-                                    المستدامة.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flex flex-col overflow-hidden rounded-2xl bg-white shadow-lg transition-shadow hover:shadow-xl">
-                            <div class="relative h-48">
-                                <img src="{{ asset('assets/images/service-it-021ed80e44b54fbb8e023bf6fc1cabe1.png') }}"
-                                    alt="تكنولوجيا المعلومات" width="1200" height="800" class="h-full w-full object-cover"
-                                    loading="lazy">
-                            </div>
-                            <div class="flex flex-1 flex-col p-6">
-                                <h3 class="text-xl font-bold text-slate-900">تكنولوجيا المعلومات</h3>
-                                <p class="mt-3 flex-1 text-base text-slate-600">
-                                    توفير أحدث الحلول التقنية والأنظمة المعلوماتية لدعم التحول الرقمي وتطوير البنية التحتية
-                                    التكنولوجية.
-                                </p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </section>
-            <section id="features" class="py-24 bg-gray-50" dir="rtl">
+            <section id="about" class="py-24 bg-gray-50" dir="rtl">
                 <div class="container mx-auto px-4">
                     <div class="flex flex-col lg:flex-row items-center gap-16">
                         <div class="lg:w-1/2">
                             <div class="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-6">
-                                لماذا تختارنا؟
+                                {{ $whyChooseUs['badge_text'] ?? 'لماذا تختارنا؟' }}
                             </div>
                             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
-                                شريك استراتيجي موثوق للقطاعين الحكومي والخاص
+                                {{ $whyChooseUs['title'] ?? 'شريك استراتيجي موثوق للقطاعين الحكومي والخاص' }}
                             </h2>
                             <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                                منذ تأسيسنا في عام 2020، استطعنا بناء سمعة قوية قائمة على الالتزام والجودة. نفخر بتنفيذ أكثر من
-                                950 عملية توريد ناجحة، مما يجعلنا الخيار الأمثل لتلبية احتياجاتكم.
+                                {{ $whyChooseUs['description'] ?? 'منذ تأسيسنا في عام 2020، استطعنا بناء سمعة قوية قائمة على الالتزام والجودة. نفخر بتنفيذ أكثر من 950 عملية توريد ناجحة، مما يجعلنا الخيار الأمثل لتلبية احتياجاتكم.' }}
                             </p>
 
                             <div class="space-y-8">
@@ -228,10 +258,11 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 class="text-xl font-bold text-gray-900 mb-2">الامتثال للمعايير المصرية</h3>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                            {{ data_get($whyItems, '0.title', '') }}
+                                        </h3>
                                         <p class="text-gray-600 leading-relaxed">
-                                            نلتزم تماماً بكافة اللوائح والقوانين المنظمة لعمليات التوريد الحكومية في مصر، لضمان
-                                            سير العمليات بسلاسة ودون تعقيدات.
+                                            {{ data_get($whyItems, '0.text', '') }}
                                         </p>
                                     </div>
                                 </div>
@@ -247,10 +278,11 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 class="text-xl font-bold text-gray-900 mb-2">سرعة وكفاءة التوريد</h3>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                            {{ data_get($whyItems, '1.title', '') }}
+                                        </h3>
                                         <p class="text-gray-600 leading-relaxed">
-                                            ندرك أهمية الوقت في المشاريع الكبرى، لذا نضمن توريد المنتجات التكنولوجية والعامة في
-                                            المواعيد المحددة بدقة متناهية.
+                                            {{ data_get($whyItems, '1.text', '') }}
                                         </p>
                                     </div>
                                 </div>
@@ -265,10 +297,11 @@
                                         </svg>
                                     </div>
                                     <div>
-                                        <h3 class="text-xl font-bold text-gray-900 mb-2">تنوع وتكامل الخدمات</h3>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-2">
+                                            {{ data_get($whyItems, '2.title', '') }}
+                                        </h3>
                                         <p class="text-gray-600 leading-relaxed">
-                                            من حلول تكنولوجيا المعلومات إلى التوريدات العامة والاستثمار، نقدم محفظة خدمات شاملة
-                                            تغطي كافة احتياجات مؤسستك.
+                                            {{ data_get($whyItems, '2.text', '') }}
                                         </p>
                                     </div>
                                 </div>
@@ -278,7 +311,7 @@
                         <div class="lg:w-1/2">
                             <div class="relative">
                                 <div class="absolute inset-0 bg-blue-600 rounded-2xl transform rotate-3 opacity-10"></div>
-                                <img src="{{ asset('assets/images/feature-trust-02ef01c7480a4534b71d70ee2285e0fd.png') }}"
+                                <img src="{{ $whyChooseUs['image'] ?? asset('assets/images/feature-trust-02ef01c7480a4534b71d70ee2285e0fd.png') }}"
                                     alt="شراكة ناجحة وثقة متبادلة" width="800" height="600"
                                     class="relative w-full rounded-2xl shadow-xl object-cover" loading="lazy" decoding="async">
                             </div>
@@ -290,20 +323,19 @@
                 <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
                 <div class="container mx-auto px-4 relative z-10 text-center">
                     <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-                        هل تبحث عن شريك توريد يمكنك الاعتماد عليه؟
+                        {{ $cta['title'] ?? 'هل تبحث عن شريك توريد يمكنك الاعتماد عليه؟' }}
                     </h2>
                     <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
-                        انضم إلى قائمة شركائنا الناجحين في القطاع الحكومي والخاص. دعنا نساعدك في تحقيق أهدافك من خلال حلول توريد
-                        واستثمار مبتكرة.
+                        {{ $cta['description'] ?? 'انضم إلى قائمة شركائنا الناجحين في القطاع الحكومي والخاص. دعنا نساعدك في تحقيق أهدافك من خلال حلول توريد واستثمار مبتكرة.' }}
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
                         <button onclick="openModal()"
                             class="w-full sm:w-auto px-8 py-4 bg-white text-blue-900 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg cursor-pointer">
-                            تواصل معنا الآن
+                            {{ $cta['primary_button_text'] ?? 'تواصل معنا الآن' }}
                         </button>
                         <a href="#services"
                             class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white/10 transition-colors">
-                            استكشف خدماتنا
+                            {{ $cta['secondary_button_text'] ?? 'استكشف خدماتنا' }}
                         </a>
                     </div>
                 </div>
@@ -311,18 +343,17 @@
         </main>
 
         <!-- Footer -->
-        <footer class="bg-gray-900 text-white pt-12 pb-8">
+        <footer id="contact" class="bg-gray-900 text-white pt-12 pb-8">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
                     <!-- Brand Column -->
                     <div>
                         <div class="flex items-center gap-2 mb-4">
                             <i data-lucide="package" class="w-6 h-6 text-secondary"></i>
-                            <span class="text-xl font-bold">MT Egypt</span>
+                            <span class="text-xl font-bold">{{ $footer['brand_text'] ?? 'MT Egypt' }}</span>
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed">
-                            شريكك الاستراتيجي في التوريدات العامة والاستثمار وتكنولوجيا المعلومات. نخدم القطاعين الحكومي والخاص منذ
-                            عام 2020.
+                            {{ $footer['description'] ?? 'شريكك الاستراتيجي في التوريدات العامة والاستثمار وتكنولوجيا المعلومات. نخدم القطاعين الحكومي والخاص منذ عام 2020.' }}
                         </p>
                     </div>
 
@@ -330,10 +361,13 @@
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-secondary">روابط سريعة</h3>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">الرئيسية</a></li>
-                            <li><a href="#about" class="text-gray-400 hover:text-white transition">من نحن</a></li>
-                            <li><a href="#services" class="text-gray-400 hover:text-white transition">خدماتنا</a></li>
-                            <li><a href="#contact" class="text-gray-400 hover:text-white transition">تواصل معنا</a></li>
+                            @foreach ($footerQuickLinks as $link)
+                                <li>
+                                    <a href="{{ $link['href'] ?? '#' }}" class="text-gray-400 hover:text-white transition">
+                                        {{ $link['text'] ?? '' }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 
@@ -341,10 +375,13 @@
                     <div>
                         <h3 class="text-lg font-semibold mb-4 text-secondary">مجالات العمل</h3>
                         <ul class="space-y-2">
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">التوريدات العامة</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">الاستثمار</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">تكنولوجيا المعلومات</a></li>
-                            <li><a href="#" class="text-gray-400 hover:text-white transition">المناقصات الحكومية</a></li>
+                            @foreach ($footerServicesLinks as $link)
+                                <li>
+                                    <a href="{{ $link['href'] ?? '#' }}" class="text-gray-400 hover:text-white transition">
+                                        {{ $link['text'] ?? '' }}
+                                    </a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
 
@@ -354,15 +391,15 @@
                         <ul class="space-y-3">
                             <li class="flex items-start gap-3 text-gray-400">
                                 <i data-lucide="map-pin" class="w-5 h-5 mt-1 flex-shrink-0"></i>
-                                <span>الدقهلية، المنصورة، الفردوس</span>
+                            <span>{{ data_get($footer, 'address', 'الدقهلية، المنصورة، الفردوس') }}</span>
                             </li>
                             <li class="flex items-center gap-3 text-gray-400">
                                 <i data-lucide="phone" class="w-5 h-5 flex-shrink-0"></i>
-                                <span dir="ltr">01555569194</span>
+                            <span dir="ltr">{{ data_get($footer, 'phone', '01555569194') }}</span>
                             </li>
                             <li class="flex items-center gap-3 text-gray-400">
                                 <i data-lucide="mail" class="w-5 h-5 flex-shrink-0"></i>
-                                <span>mtegyptsuppliers@gmail.com</span>
+                            <span>{{ data_get($footer, 'email', 'mtegyptsuppliers@gmail.com') }}</span>
                             </li>
                         </ul>
                     </div>
@@ -370,7 +407,7 @@
 
                 <div class="border-t border-gray-800 pt-8 text-center">
                     <p class="text-gray-500 text-sm">
-                        © 2024 MT Egypt للتوريدات والاستثمار. جميع الحقوق محفوظة.
+                        {{ $footer['copyright'] ?? '© 2024 MT Egypt للتوريدات والاستثمار. جميع الحقوق محفوظة.' }}
                     </p>
                 </div>
             </div>
@@ -385,22 +422,31 @@
                         <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
                             <div class="sm:flex sm:items-start">
                                 <div class="mt-3 text-center sm:mt-0 sm:text-right w-full">
-                                    <h3 class="text-xl font-semibold leading-6 text-gray-900 mb-4" id="modal-title">طلب عرض سعر</h3>
-                                    <form id="quoteForm" onsubmit="event.preventDefault(); submitForm();">
+                                    <h3 class="text-xl font-semibold leading-6 text-gray-900 mb-4" id="modal-title">
+                                        {{ $quoteModal['title'] ?? 'طلب عرض سعر' }}
+                                    </h3>
+                                    <form id="quoteForm" action="{{ route('quote-requests.store') }}" method="POST">
+                                        @csrf
                                         <div class="space-y-4">
                                             <div>
-                                                <label for="name" class="block text-sm font-medium leading-6 text-gray-900">الاسم</label>
+                                            <label for="name" class="block text-sm font-medium leading-6 text-gray-900">
+                                                {{ $quoteModal['name_label'] ?? 'الاسم' }}
+                                            </label>
                                                 <input type="text" name="name" id="name" required
                                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 px-3">
                                             </div>
                                             <div>
-                                                <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">رقم الهاتف</label>
+                                            <label for="phone" class="block text-sm font-medium leading-6 text-gray-900">
+                                                {{ $quoteModal['phone_label'] ?? 'رقم الهاتف' }}
+                                            </label>
                                                 <input type="tel" name="phone" id="phone" required
                                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 px-3">
                                             </div>
 
                                             <div>
-                                                <label class="block text-sm font-medium leading-6 text-gray-900 mb-2">المنتجات المطلوبة</label>
+                                            <label class="block text-sm font-medium leading-6 text-gray-900 mb-2">
+                                                {{ $quoteModal['products_label'] ?? 'المنتجات المطلوبة' }}
+                                            </label>
                                                 <div id="products-list" class="space-y-3">
                                                     <div class="flex gap-3">
                                                         <input type="text" name="product[]" placeholder="اسم المنتج" required
@@ -409,20 +455,21 @@
                                                             class="block w-24 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 px-3">
                                                     </div>
                                                 </div>
-                                                <button type="button" onclick="addProduct()"
+                                            <button type="button" onclick="addProduct()"
                                                     class="mt-3 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500">
-                                                    <i data-lucide="plus" class="w-4 h-4 ml-1"></i> إضافة منتج آخر
+                                                <i data-lucide="plus" class="w-4 h-4 ml-1"></i>
+                                                {{ $quoteModal['add_product_text'] ?? 'إضافة منتج آخر' }}
                                                 </button>
                                             </div>
                                         </div>
                                         <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
                                             <button type="submit"
                                                 class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:col-start-2">
-                                                ارسال الطلب
+                                                {{ $quoteModal['submit_text'] ?? 'ارسال الطلب' }}
                                             </button>
                                             <button type="button" onclick="closeModal()"
                                                 class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0">
-                                                إلغاء
+                                                {{ $quoteModal['cancel_text'] ?? 'إلغاء' }}
                                             </button>
                                         </div>
                                     </form>
@@ -461,11 +508,11 @@
                 lucide.createIcons();
             }
 
-            function submitForm() {
-                alert('تم استلام طلبك بنجاح! سنتواصل معك قريباً.');
-                closeModal();
-                document.getElementById('quoteForm').reset();
-            }
         </script>
+        @if (session('quote_success'))
+            <script>
+                alert(@json(session('quote_success')));
+            </script>
+        @endif
     </body>
 </html>

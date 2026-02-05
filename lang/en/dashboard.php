@@ -801,9 +801,20 @@ return [
     'Customer Reviews Section' => 'Customer Reviews Section',
     'CTA Section' => 'CTA Section',
     'Contact Section' => 'Contact Section',
+    'Header Section' => 'Header Section',
+    'Stats Section' => 'Stats Section',
+    'Services Section' => 'Services Section',
+    'Why Choose Us Section' => 'Why Choose Us Section',
+    'Footer Section' => 'Footer Section',
+    'Quote Modal' => 'Quote Modal',
 
     // Contact Messages
     'Contact Messages' => 'Contact Messages',
+    'Quote Requests' => 'Quote Requests',
+    'Quote Request Details' => 'Quote Request Details',
+    'items' => 'Items',
+    'product' => 'Product',
+    'quantity' => 'Quantity',
     'View Message' => 'View Message',
     'Message Details' => 'Message Details',
     'all_messages' => 'All Messages',
@@ -876,6 +887,9 @@ return [
     'Items' => 'Items',
     'Item Text (AR)' => 'Item Text (Arabic)',
     'Item Text (EN)' => 'Item Text (English)',
+    'Item Label (AR)' => 'Item Label (Arabic)',
+    'Item Label (EN)' => 'Item Label (English)',
+    'Item Value' => 'Item Value',
 
     // Flexible System Section
     'Cards' => 'Cards',
@@ -894,6 +908,41 @@ return [
 
     // Common Actions
     'add' => 'Add',
+
+    // New Landing Dashboard Fields
+    'Navigation Items' => 'Navigation Items',
+    'Item Link' => 'Item Link',
+    'Brand Text (AR)' => 'Brand Text (Arabic)',
+    'Brand Text (EN)' => 'Brand Text (English)',
+    'CTA Button Text (AR)' => 'CTA Button Text (Arabic)',
+    'CTA Button Text (EN)' => 'CTA Button Text (English)',
+    'Highlight (AR)' => 'Highlight (Arabic)',
+    'Highlight (EN)' => 'Highlight (English)',
+    'Primary Button Text (AR)' => 'Primary Button Text (Arabic)',
+    'Primary Button Text (EN)' => 'Primary Button Text (English)',
+    'Primary Button Link (AR)' => 'Primary Button Link (Arabic)',
+    'Primary Button Link (EN)' => 'Primary Button Link (English)',
+    'Secondary Button Text (AR)' => 'Secondary Button Text (Arabic)',
+    'Secondary Button Text (EN)' => 'Secondary Button Text (English)',
+    'Secondary Button Link (AR)' => 'Secondary Button Link (Arabic)',
+    'Secondary Button Link (EN)' => 'Secondary Button Link (English)',
+    'Stats Items' => 'Stats Items',
+    'Services Items' => 'Services Items',
+    'Item Title (AR)' => 'Item Title (Arabic)',
+    'Item Title (EN)' => 'Item Title (English)',
+    'Badge Text (AR)' => 'Badge Text (Arabic)',
+    'Badge Text (EN)' => 'Badge Text (English)',
+    'Quick Links' => 'Quick Links',
+    'Services Links' => 'Services Links',
+    'Address' => 'Address',
+    'Products Label (AR)' => 'Products Label (Arabic)',
+    'Products Label (EN)' => 'Products Label (English)',
+    'Add Product Text (AR)' => 'Add Product Text (Arabic)',
+    'Add Product Text (EN)' => 'Add Product Text (English)',
+    'Submit Text (AR)' => 'Submit Text (Arabic)',
+    'Submit Text (EN)' => 'Submit Text (English)',
+    'Cancel Text (AR)' => 'Cancel Text (Arabic)',
+    'Cancel Text (EN)' => 'Cancel Text (English)',
 
 
 ];

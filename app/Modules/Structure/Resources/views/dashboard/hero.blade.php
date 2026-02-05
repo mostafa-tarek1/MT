@@ -25,102 +25,87 @@
                                             <x-form.form-component :route="route('hero.store')" method="POST"
                                                 enctype="multipart/form-data">
                                                 <div class="row">
-                                                    <x-input.input-field name="ar[title_primary]" id="ar_title_primary"
-                                                        placeholder="{{ __('dashboard.Title Primary (AR)') }}"
-                                                        label="{{ __('dashboard.Title Primary (AR)') }}"
-                                                        :value="old('ar.title_primary') ?? ($content['ar']['title_primary'] ?? '')" />
-                                                    {{-- Title Primary EN --}}
-                                                    <x-input.input-field name="en[title_primary]" id="en_title_primary"
-                                                        placeholder="{{ __('dashboard.Title Primary (EN)') }}"
-                                                        label="{{ __('dashboard.Title Primary (EN)') }}"
-                                                        :value="old('en.title_primary') ?? ($content['en']['title_primary'] ?? '')" />
+                                                    <x-input.input-field name="ar[title]" id="ar_title"
+                                                        placeholder="{{ __('dashboard.Title (AR)') }}"
+                                                        label="{{ __('dashboard.Title (AR)') }}"
+                                                        :value="old('ar.title') ?? ($content['ar']['title'] ?? '')" />
+                                                    <x-input.input-field name="en[title]" id="en_title"
+                                                        placeholder="{{ __('dashboard.Title (EN)') }}"
+                                                        label="{{ __('dashboard.Title (EN)') }}"
+                                                        :value="old('en.title') ?? ($content['en']['title'] ?? '')" />
                                                 </div>
                                                 <div class="row">
-                                                    {{-- Title Accent AR --}}
-                                                    <x-input.input-field name="ar[title_accent]" id="ar_title_accent"
-                                                        placeholder="{{ __('dashboard.Title Accent (AR)') }}"
-                                                        label="{{ __('dashboard.Title Accent (AR)') }}"
-                                                        :value="old('ar.title_accent') ?? ($content['ar']['title_accent'] ?? '')" />
-                                                    {{-- Title Accent EN --}}
-                                                    <x-input.input-field name="en[title_accent]" id="en_title_accent"
-                                                        placeholder="{{ __('dashboard.Title Accent (EN)') }}"
-                                                        label="{{ __('dashboard.Title Accent (EN)') }}"
-                                                        :value="old('en.title_accent') ?? ($content['en']['title_accent'] ?? '')" />
+                                                    <x-input.input-field name="ar[highlight]" id="ar_highlight"
+                                                        placeholder="{{ __('dashboard.Highlight (AR)') }}"
+                                                        label="{{ __('dashboard.Highlight (AR)') }}"
+                                                        :value="old('ar.highlight') ?? ($content['ar']['highlight'] ?? '')" />
+                                                    <x-input.input-field name="en[highlight]" id="en_highlight"
+                                                        placeholder="{{ __('dashboard.Highlight (EN)') }}"
+                                                        label="{{ __('dashboard.Highlight (EN)') }}"
+                                                        :value="old('en.highlight') ?? ($content['en']['highlight'] ?? '')" />
                                                 </div>
                                                 <div class="row">
-                                                        {{-- Subtitle AR --}}
-                                                    <x-input.input-field name="ar[subtitle]" id="ar_subtitle"
-                                                        placeholder="{{ __('dashboard.Subtitle (AR)') }}"
-                                                        label="{{ __('dashboard.Subtitle (AR)') }}"
-                                                        :value="old('ar.subtitle') ?? ($content['ar']['subtitle'] ?? '')" />
-
-                                                        {{-- Subtitle EN --}}
-                                                    <x-input.input-field name="en[subtitle]" id="en_subtitle"
-                                                        placeholder="{{ __('dashboard.Subtitle (EN)') }}"
-                                                        label="{{ __('dashboard.Subtitle (EN)') }}"
-                                                        :value="old('en.subtitle') ?? ($content['en']['subtitle'] ?? '')" />
+                                                    <x-editor.quill id="ar_description"
+                                                        label="{{ __('dashboard.Description (AR)') }}"
+                                                        name="ar[description]"
+                                                        :value="old('ar.description') ?? ($content['ar']['description'] ?? '')" />
+                                                    <x-editor.quill id="en_description"
+                                                        label="{{ __('dashboard.Description (EN)') }}"
+                                                        name="en[description]"
+                                                        :value="old('en.description') ?? ($content['en']['description'] ?? '')" />
                                                 </div>
                                                 <div class="row">
-                                                        {{-- Button Text AR --}}
-                                                    <x-input.input-field name="ar[button_text]" id="ar_button_text"
-                                                        placeholder="{{ __('dashboard.Button Text (AR)') }}"
-                                                        label="{{ __('dashboard.Button Text (AR)') }}"
-                                                        :value="old('ar.button_text') ?? ($content['ar']['button_text'] ?? '')" />
-
-                                                        {{-- Button Text EN --}}
-                                                    <x-input.input-field name="en[button_text]" id="en_button_text"
-                                                        placeholder="{{ __('dashboard.Button Text (EN)') }}"
-                                                        label="{{ __('dashboard.Button Text (EN)') }}"
-                                                        :value="old('en.button_text') ?? ($content['en']['button_text'] ?? '')" />
-                                                    </div>
-                                                    <div class="row">
-                                                    {{-- Button Link AR --}}
-                                                    <x-input.input-field name="ar[button_link]" id="ar_button_link"
-                                                        placeholder="{{ __('dashboard.Button Link (AR)') }}"
-                                                        label="{{ __('dashboard.Button Link (AR)') }}"
-                                                        :value="old('ar.button_link') ?? ($content['ar']['button_link'] ?? '')" />
-
-                                                        {{-- Button Link EN --}}
-                                                    <x-input.input-field name="en[button_link]" id="en_button_link"
-                                                        placeholder="{{ __('dashboard.Button Link (EN)') }}"
-                                                        label="{{ __('dashboard.Button Link (EN)') }}"
-                                                        :value="old('en.button_link') ?? ($content['en']['button_link'] ?? '')" />
-                                                    </div>{{-- Client Logos --}}
-                                                    <div class="form-group">
-                                                        <label class="form-label">{{ __('dashboard.Client Logos') }}</label>
-                                                        <div id="clientLogosContainer">
-                                                            @foreach (old('all.client_logos', data_get($content, 'en.client_logos', [])) as $key => $client_logo)
-                                                                <div class="row clientLogo-row mb-3 align-items-center"
-                                                                    data-index="{{ $key }}">
-                                                                    <div class="col-12 col-md-4">
-                                                                        @php
-    $fileId = 1000 + $key;
-    $imageId = 'image_' . $fileId;
-                                                                        @endphp
-                                                                        <x-input.image-input
-                                                                            name="client_logos[{{ $key }}][icon]"
-                                                                            :fileId="$fileId" :id="$imageId"
-                                                                            :label="__('dashboard.client_logo')"
-                                                                            :value="old('old_file.' . $fileId, $client_logo['icon'] ?? '')" wrapperClass="col-12"
-                                                                            previewClass="col-12 mt-2" :showPreview="true"
-                                                                            previewMaxHeight="80px"
-                                                                            enName="en[client_logos][{{ $key }}][icon]"
-                                                                            arName="ar[client_logos][{{ $key }}][icon]" />
-                                                                    </div>
-                                                                    <div
-                                                                        class="col-12 col-md-1 d-flex align-items-center justify-content-center mt-3 mt-md-0">
-                                                                        <button type="button"
-                                                                            class="btn btn-sm btn-danger remove-client-logo"
-                                                                            title="{{ __('dashboard.delete') }}">
-                                                                            حذف
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            @endforeach
-                                                        </div>
-                                                        <button type="button" class="btn btn-primary btn-sm"
-                                                            id="addClientLogo">{{ __('dashboard.add_new') }}</button>
-                                                    </div>
+                                                    <x-input.input-field name="ar[primary_button_text]" id="ar_primary_button_text"
+                                                        placeholder="{{ __('dashboard.Primary Button Text (AR)') }}"
+                                                        label="{{ __('dashboard.Primary Button Text (AR)') }}"
+                                                        :value="old('ar.primary_button_text') ?? ($content['ar']['primary_button_text'] ?? '')" />
+                                                    <x-input.input-field name="en[primary_button_text]" id="en_primary_button_text"
+                                                        placeholder="{{ __('dashboard.Primary Button Text (EN)') }}"
+                                                        label="{{ __('dashboard.Primary Button Text (EN)') }}"
+                                                        :value="old('en.primary_button_text') ?? ($content['en']['primary_button_text'] ?? '')" />
+                                                </div>
+                                                <div class="row">
+                                                    <x-input.input-field name="ar[primary_button_link]" id="ar_primary_button_link"
+                                                        placeholder="{{ __('dashboard.Primary Button Link (AR)') }}"
+                                                        label="{{ __('dashboard.Primary Button Link (AR)') }}"
+                                                        :value="old('ar.primary_button_link') ?? ($content['ar']['primary_button_link'] ?? '')" />
+                                                    <x-input.input-field name="en[primary_button_link]" id="en_primary_button_link"
+                                                        placeholder="{{ __('dashboard.Primary Button Link (EN)') }}"
+                                                        label="{{ __('dashboard.Primary Button Link (EN)') }}"
+                                                        :value="old('en.primary_button_link') ?? ($content['en']['primary_button_link'] ?? '')" />
+                                                </div>
+                                                <div class="row">
+                                                    <x-input.input-field name="ar[secondary_button_text]" id="ar_secondary_button_text"
+                                                        placeholder="{{ __('dashboard.Secondary Button Text (AR)') }}"
+                                                        label="{{ __('dashboard.Secondary Button Text (AR)') }}"
+                                                        :value="old('ar.secondary_button_text') ?? ($content['ar']['secondary_button_text'] ?? '')" />
+                                                    <x-input.input-field name="en[secondary_button_text]" id="en_secondary_button_text"
+                                                        placeholder="{{ __('dashboard.Secondary Button Text (EN)') }}"
+                                                        label="{{ __('dashboard.Secondary Button Text (EN)') }}"
+                                                        :value="old('en.secondary_button_text') ?? ($content['en']['secondary_button_text'] ?? '')" />
+                                                </div>
+                                                <div class="row">
+                                                    <x-input.input-field name="ar[secondary_button_link]" id="ar_secondary_button_link"
+                                                        placeholder="{{ __('dashboard.Secondary Button Link (AR)') }}"
+                                                        label="{{ __('dashboard.Secondary Button Link (AR)') }}"
+                                                        :value="old('ar.secondary_button_link') ?? ($content['ar']['secondary_button_link'] ?? '')" />
+                                                    <x-input.input-field name="en[secondary_button_link]" id="en_secondary_button_link"
+                                                        placeholder="{{ __('dashboard.Secondary Button Link (EN)') }}"
+                                                        label="{{ __('dashboard.Secondary Button Link (EN)') }}"
+                                                        :value="old('en.secondary_button_link') ?? ($content['en']['secondary_button_link'] ?? '')" />
+                                                </div>
+                                                <div class="row">
+                                                    @php
+                                                        $fileId = 200;
+                                                        $imageId = 'hero_image_' . $fileId;
+                                                    @endphp
+                                                    <x-input.image-input name="image" :fileId="$fileId" :id="$imageId"
+                                                        :label="__('dashboard.image')"
+                                                        :value="old('old_file.' . $fileId, $content['ar']['image'] ?? '')"
+                                                        wrapperClass="col-md-6" previewClass="col-md-6"
+                                                        :showPreview="true" previewMaxHeight="200px"
+                                                        enName="en[image]" arName="ar[image]" />
+                                                </div>
                                             </x-form.form-component>
                                         </div>
                                     </div>
@@ -146,79 +131,7 @@
                         message: "{{ $error }}"
                     });
                 @endforeach
-                    });
+            });
         @endif
-    </script>
-    <script>
-        $(function () {
-            @php
-$clientLogos = old('all.client_logos', data_get($content, 'en.client_logos', []));
-if (!is_array($clientLogos)) {
-    $clientLogos = [];
-}
-            @endphp
-            let logoIndex = {{ count($clientLogos) }};
-
-            // Add new logo
-            $('#addClientLogo').on('click', function () {
-                const fileId = 1000 + logoIndex;
-                const imageId = 'image_' + fileId;
-                const row = `
-                        <div class="row clientLogo-row mb-3" data-index="${logoIndex}">
-                            <div class="col-12 col-md-4">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <div class="form-group w-100">
-                                            <label class="form-label" for="${imageId}">@lang('dashboard.client_logo')</label>
-                                            <div class="input-group">
-                                                <div class="custom-file">
-                                                    <input name="en[client_logos][${logoIndex}][icon]" type="hidden" value="file_${fileId}">
-                                                    <input name="ar[client_logos][${logoIndex}][icon]" type="hidden" value="file_${fileId}">
-                                                    <input name="file[${fileId}]" type="file" class="custom-file-input" id="${imageId}" accept="image/*">
-                                                    <label class="custom-file-label" for="${imageId}">@lang('dashboard.choose_file')</label>
-                                                    <input name="old_file[${fileId}]" type="hidden" value="">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-12 mt-2">
-                                        <img id="imagePreview${fileId}" src="#" alt="Preview" class="img-thumbnail d-none" style="max-height: 80px;">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-1 d-flex align-items-center justify-content-center mt-3 mt-md-0">
-                                <button type="button" class="btn btn-sm btn-danger remove-client-logo" title="@lang('dashboard.delete')">
-                                                                            حذف
-                                </button>
-                            </div>
-                        </div>`;
-                $('#clientLogosContainer').append(row);
-
-                // Initialize file input functionality for the new row
-                $(`#${imageId}`).on('change', function () {
-                    var fileName = $(this).val().split('\\').pop();
-                    $(this).siblings('.custom-file-label').html(fileName || '@lang('dashboard.choose_file')');
-
-                    // Preview image
-                    if (this.files && this.files[0]) {
-                        var reader = new FileReader();
-                        reader.onload = function (e) {
-                            $(`#imagePreview${fileId}`)
-                                .attr('src', e.target.result)
-                                .removeClass('d-none');
-                        };
-                        reader.readAsDataURL(this.files[0]);
-                    }
-                });
-
-                logoIndex++;
-            });
-
-            // Remove logo
-            $(document).on('click', '.remove-client-logo', function (e) {
-                e.preventDefault();
-                $(this).closest('.clientLogo-row').remove();
-            });
-        });
     </script>
 @endpush
