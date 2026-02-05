@@ -1,0 +1,324 @@
+name: Authentication
+description: |-
+
+  APIs for user authentication including sign-up, sign-in, and sign-out
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/auth/sign-up
+    metadata:
+      custom: []
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for user authentication including sign-up, sign-in, and sign-out
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Sign Up'
+      description: 'Register a new user with phone number. An OTP will be sent to verify the phone.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        custom: []
+        name: name
+        description: "The user's full name."
+        required: true
+        example: 'Ahmed Mohamed'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      phone:
+        custom: []
+        name: phone
+        description: "The user's phone number (11 digits)."
+        required: true
+        example: '01012345678'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      name: 'Ahmed Mohamed'
+      phone: '01012345678'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "status": 201,
+            "message": "تم الإنشاء بنجاح",
+            "data": {
+              "name": "Ahmed Mohamed",
+              "phone": "01012345678",
+              "status": "active",
+              "otp_token": "abc123",
+              "otp_verified": false,
+              "token": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+            }
+          }
+        headers: []
+        description: ''
+      -
+        custom: []
+        status: 400
+        content: |-
+          {
+            "status": 400,
+            "message": "رقم الهاتف موجود بالفعل"
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/auth/verify-otp
+    metadata:
+      custom: []
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for user authentication including sign-up, sign-in, and sign-out
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Verify Sign Up OTP'
+      description: 'Verify the OTP code sent to the phone number during sign-up.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      phone:
+        custom: []
+        name: phone
+        description: "The user's phone number."
+        required: true
+        example: '01012345678'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      code:
+        custom: []
+        name: code
+        description: 'The OTP code.'
+        required: true
+        example: '123456'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+      name:
+        custom: []
+        name: name
+        description: 'Must not be greater than 255 characters.'
+        required: false
+        example: dqamniihfqcoynlazghdt
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
+    cleanBodyParameters:
+      phone: '01012345678'
+      code: '123456'
+      name: dqamniihfqcoynlazghdt
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "status": 200,
+            "message": "تم التحقق من الهاتف بنجاح",
+            "data": {
+              "token": "1|abc123...",
+              "user": {
+                "id": 1,
+                "name": "Ahmed Mohamed",
+                "phone": "01012345678",
+                "phone_verified_at": "2025-11-11T10:00:00.000000Z"
+              }
+            }
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/auth/sign-in
+    metadata:
+      custom: []
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for user authentication including sign-up, sign-in, and sign-out
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Sign In'
+      description: 'Sign in with phone number. An OTP will be sent for verification.'
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      phone:
+        custom: []
+        name: phone
+        description: "The user's phone number."
+        required: true
+        example: '01012345678'
+        type: string
+        enumValues: []
+        exampleWasSpecified: true
+        nullable: false
+        deprecated: false
+    cleanBodyParameters:
+      phone: '01012345678'
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 201
+        content: |-
+          {
+            "status": 201,
+            "message": "تم الإنشاء بنجاح",
+            "data": {
+              "name": "Ahmed Mohamed",
+              "phone": "01012345678",
+              "otp_token": "abc123",
+              "token": "eyJ0eXAiOiJKV1QiLCJhbGc..."
+            }
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - POST
+    uri: api/v1/auth/sign-out
+    metadata:
+      custom: []
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for user authentication including sign-up, sign-in, and sign-out
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Sign Out'
+      description: 'Sign out the authenticated user.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "status": 200,
+            "message": "تم تسجيل الخروج بنجاح"
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/v1/auth/platform
+    metadata:
+      custom: []
+      groupName: Authentication
+      groupDescription: |-
+
+        APIs for user authentication including sign-up, sign-in, and sign-out
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get Platform'
+      description: 'Get the current platform information.'
+      authenticated: true
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: |-
+          {
+            "platform": "mobile"
+          }
+        headers: []
+        description: ''
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null

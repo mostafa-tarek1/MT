@@ -1,0 +1,2 @@
+[03-Dec-2025 09:06:18 UTC] PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) in /home/hafez/public_html/new_haraj/vendor/symfony/string/UnicodeString.php on line 48
+[03-Dec-2025 09:48:31 UTC] PHP Parse error:  syntax error, unexpected 'static' (T_STATIC) in /home/hafez/public_html/new_haraj/vendor/symfony/string/UnicodeString.php on line 48
