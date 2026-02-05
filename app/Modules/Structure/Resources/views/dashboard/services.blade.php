@@ -55,10 +55,14 @@
                                                                     placeholder="{{ __('dashboard.Item Title (AR)') }}"
                                                                     label="{{ __('dashboard.Item Title (AR)') }}"
                                                                     :value="old('ar.items.' . $index . '.title', $item['title'] ?? '')" />
-                                                                <x-editor.quill id="ar_service_text_{{ $index }}"
-                                                                    label="{{ __('dashboard.Item Text (AR)') }}"
-                                                                    name="ar[items][{{ $index }}][text]"
-                                                                    :value="old('ar.items.' . $index . '.text', $item['text'] ?? '')" />
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="ar_service_text_{{ $index }}">
+                                                                        @lang('dashboard.Item Text (AR)')
+                                                                    </label>
+                                                                    <textarea name="ar[items][{{ $index }}][text]"
+                                                                        id="ar_service_text_{{ $index }}" class="form-control"
+                                                                        rows="5">{{ old('ar.items.' . $index . '.text', $item['text'] ?? '') }}</textarea>
+                                                                </div>
                                                             </div>
                                                             <div class="col-12 col-md-4">
                                                                 <x-input.input-field
@@ -67,10 +71,14 @@
                                                                     placeholder="{{ __('dashboard.Item Title (EN)') }}"
                                                                     label="{{ __('dashboard.Item Title (EN)') }}"
                                                                     :value="old('en.items.' . $index . '.title', data_get($content, 'en.items.' . $index . '.title', ''))" />
-                                                                <x-editor.quill id="en_service_text_{{ $index }}"
-                                                                    label="{{ __('dashboard.Item Text (EN)') }}"
-                                                                    name="en[items][{{ $index }}][text]"
-                                                                    :value="old('en.items.' . $index . '.text', data_get($content, 'en.items.' . $index . '.text', ''))" />
+                                                                <div class="form-group">
+                                                                    <label class="form-label" for="en_service_text_{{ $index }}">
+                                                                        @lang('dashboard.Item Text (EN)')
+                                                                    </label>
+                                                                    <textarea name="en[items][{{ $index }}][text]"
+                                                                        id="en_service_text_{{ $index }}" class="form-control"
+                                                                        rows="5">{{ old('en.items.' . $index . '.text', data_get($content, 'en.items.' . $index . '.text', '')) }}</textarea>
+                                                                </div>
                                                             </div>
                                                             <div class="col-12 col-md-3">
                                                                 @php
@@ -128,8 +136,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="ar_service_text_${serviceIndex}">@lang('dashboard.Item Text (AR)')</label>
-                                <div id="ar_service_text_${serviceIndex}" style="min-height: 200px;"></div>
-                                <textarea id="ar_service_text_${serviceIndex}_hidden" name="ar[items][${serviceIndex}][text]" class="d-none"></textarea>
+                                <textarea name="ar[items][${serviceIndex}][text]" id="ar_service_text_${serviceIndex}" class="form-control" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="col-12 col-md-4">
@@ -139,8 +146,7 @@
                             </div>
                             <div class="form-group">
                                 <label class="form-label" for="en_service_text_${serviceIndex}">@lang('dashboard.Item Text (EN)')</label>
-                                <div id="en_service_text_${serviceIndex}" style="min-height: 200px;"></div>
-                                <textarea id="en_service_text_${serviceIndex}_hidden" name="en[items][${serviceIndex}][text]" class="d-none"></textarea>
+                                <textarea name="en[items][${serviceIndex}][text]" id="en_service_text_${serviceIndex}" class="form-control" rows="5"></textarea>
                             </div>
                         </div>
                         <div class="col-12 col-md-3">
@@ -182,35 +188,6 @@
                         };
                         reader.readAsDataURL(this.files[0]);
                     }
-                });
-
-                var toolbarOptions = [
-                    [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-                    ['bold', 'italic', 'underline', 'strike'],
-                    [{ 'list': 'ordered' }, { 'list': 'bullet' }],
-                    [{ 'direction': 'rtl' }],
-                    [{ 'color': [] }, { 'background': [] }],
-                    ['clean'],
-                ];
-
-                var arQuillId = 'ar_service_text_' + serviceIndex;
-                var arQuill = new Quill('#' + arQuillId, {
-                    modules: { toolbar: toolbarOptions },
-                    theme: 'snow',
-                    placeholder: 'اكتب هنا...'
-                });
-                arQuill.on('text-change', function() {
-                    $('#' + arQuillId + '_hidden').val(arQuill.root.innerHTML);
-                });
-
-                var enQuillId = 'en_service_text_' + serviceIndex;
-                var enQuill = new Quill('#' + enQuillId, {
-                    modules: { toolbar: toolbarOptions },
-                    theme: 'snow',
-                    placeholder: 'Write here...'
-                });
-                enQuill.on('text-change', function() {
-                    $('#' + enQuillId + '_hidden').val(enQuill.root.innerHTML);
                 });
 
                 serviceIndex++;

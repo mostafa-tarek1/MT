@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl" data-scrapbook-source="https://44gu0fjxv9.landing-page.io/#services"
     data-scrapbook-create="20260205125908066" data-scrapbook-title="MT Egypt | شركة التوريدات العامة والاستثمار وتكنولوجيا المعلومات">
-    <head>
+<head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>MT Egypt | شركة التوريدات العامة والاستثمار وتكنولوجيا المعلومات</title>
@@ -47,7 +47,7 @@
 
         <!-- Lucide Icons -->
         <script src="{{ asset('assets/js/lucide.min.js') }}"></script>
-    </head>
+</head>
     <body class="font-sans text-gray-800 bg-gray-50 flex flex-col min-h-screen">
         @php
             $navItems = $header['nav_items'] ?? [
@@ -110,13 +110,13 @@
         <header class="bg-white shadow-sm sticky top-0 z-50">
             <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex justify-between items-center h-20">
-                    <!-- Logo -->
+            <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center">
                         <a href="#" class="text-2xl font-bold text-primary flex items-center gap-2">
                             <i data-lucide="package" class="w-8 h-8 text-secondary"></i>
                             <span>{{ $header['brand_text'] ?? 'MT Egypt' }}</span>
                         </a>
-                    </div>
+            </div>
 
                     <!-- Desktop Navigation -->
                     <nav class="hidden md:flex space-x-8 space-x-reverse">
@@ -133,18 +133,18 @@
                         <button onclick="openModal()"
                             class="bg-primary hover:bg-blue-800 text-white px-5 py-2.5 rounded-md font-semibold transition shadow-md cursor-pointer">
                             {{ $header['cta_text'] ?? 'اطلب عرض سعر' }}
-                        </button>
+              </button>
                     </div>
 
                     <!-- Mobile menu button placeholder -->
                     <div class="md:hidden flex items-center">
                         <button class="text-gray-500 hover:text-gray-700 focus:outline-none">
                             <i data-lucide="menu" class="w-6 h-6"></i>
-                        </button>
+            </button>
                     </div>
-                </div>
-            </div>
-        </header>
+          </div>
+        </div>
+      </header>
 
         <!-- Main Content -->
         <main class="flex-grow">
@@ -155,9 +155,9 @@
                             <h1 class="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl lg:text-6xl">
                                 {{ $hero['title'] ?? 'شريكك الاستراتيجي في' }}
                                 <span class="text-blue-700">{{ $hero['highlight'] ?? 'التوريدات والاستثمار' }}</span>
-                            </h1>
+        </h1>
                             <p class="mt-6 text-lg leading-8 text-slate-600">
-                                {{ $hero['description'] ?? 'نقدم حلولاً متكاملة في مجالات التوريدات العامة، الاستثمار، وتكنولوجيا المعلومات. نعتز بخدمة القطاعين الحكومي والخاص في مصر منذ عام 2020.' }}
+                                {!! $hero['description'] ?? 'نقدم حلولاً متكاملة في مجالات التوريدات العامة، الاستثمار، وتكنولوجيا المعلومات. نعتز بخدمة القطاعين الحكومي والخاص في مصر منذ عام 2020.' !!}
                             </p>
                             <div class="mt-8 flex flex-wrap gap-4">
                                 <button onclick="openModal()"
@@ -169,17 +169,17 @@
                                     {{ $hero['secondary_button_text'] ?? 'خدماتنا' }}
                                 </a>
                             </div>
-                        </div>
+      </div>
                         <div class="relative lg:order-last">
                             <div class="relative overflow-hidden rounded-2xl shadow-xl">
                                 <img
                                     src="{{ $hero['image'] ?? asset('assets/images/hero-business-meeting-d90bd3414b884a6dbc30afaa9a52b3c4.png') }}"
                                     alt="اجتماع عمل احترافي" width="1200" height="900"
                                     class="h-full w-full object-cover" loading="eager">
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            </div>
+        </div>
+      </div>
+    </div>
             </section>
             <section id="stats" dir="rtl" class="bg-blue-900 py-12 sm:py-16">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -190,7 +190,7 @@
                         <p class="mt-3 text-xl text-blue-200">
                             {{ $stats['subtitle'] ?? 'مسيرة حافلة بالنجاح والثقة المتبادلة مع شركائنا في النجاح.' }}
                         </p>
-                    </div>
+              </div>
                     <dl class="mt-10 grid grid-cols-1 gap-8 sm:grid-cols-3">
                         @foreach ($statsItems as $item)
                             <div class="flex flex-col items-center rounded-xl bg-white/10 p-8 text-center backdrop-blur-sm">
@@ -200,11 +200,11 @@
                                 <dd class="order-1 text-5xl font-extrabold tracking-tight text-white">
                                     {{ $item['value'] ?? '' }}
                                 </dd>
-                            </div>
-                        @endforeach
+            </div>
+          @endforeach
                     </dl>
-                </div>
-            </section>
+        </div>
+      </section>
             <section id="services" dir="rtl" class="bg-slate-50 py-16 sm:py-24">
                 <div class="container mx-auto px-4 sm:px-6 lg:px-8">
                     <div class="mx-auto max-w-2xl text-center">
@@ -227,11 +227,11 @@
                                     <p class="mt-3 flex-1 text-base text-slate-600">
                                         {!! $service['text'] ?? '' !!}
                                     </p>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
+    </div>
                 </div>
+              @endforeach
+            </div>
+          </div>
             </section>
             <section id="about" class="py-24 bg-gray-50" dir="rtl">
                 <div class="container mx-auto px-4">
@@ -244,7 +244,7 @@
                                 {{ $whyChooseUs['title'] ?? 'شريك استراتيجي موثوق للقطاعين الحكومي والخاص' }}
                             </h2>
                             <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                                {{ $whyChooseUs['description'] ?? 'منذ تأسيسنا في عام 2020، استطعنا بناء سمعة قوية قائمة على الالتزام والجودة. نفخر بتنفيذ أكثر من 950 عملية توريد ناجحة، مما يجعلنا الخيار الأمثل لتلبية احتياجاتكم.' }}
+                                {!! $whyChooseUs['description'] ?? 'منذ تأسيسنا في عام 2020، استطعنا بناء سمعة قوية قائمة على الالتزام والجودة. نفخر بتنفيذ أكثر من 950 عملية توريد ناجحة، مما يجعلنا الخيار الأمثل لتلبية احتياجاتكم.' !!}
                             </p>
 
                             <div class="space-y-8">
@@ -256,16 +256,16 @@
                                             <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"></path>
                                             <path d="m9 12 2 2 4-4"></path>
                                         </svg>
-                                    </div>
+          </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-gray-900 mb-2">
                                             {{ data_get($whyItems, '0.title', '') }}
                                         </h3>
                                         <p class="text-gray-600 leading-relaxed">
-                                            {{ data_get($whyItems, '0.text', '') }}
+                                            {!! data_get($whyItems, '0.text', '') !!}
                                         </p>
-                                    </div>
-                                </div>
+        </div>
+      </div>
 
                                 <div class="flex gap-4">
                                     <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center">
@@ -275,17 +275,17 @@
                                             <path
                                                 d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14H4z">
                                             </path>
-                                        </svg>
-                                    </div>
+                  </svg>
+              </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-gray-900 mb-2">
                                             {{ data_get($whyItems, '1.title', '') }}
                                         </h3>
                                         <p class="text-gray-600 leading-relaxed">
-                                            {{ data_get($whyItems, '1.text', '') }}
+                                            {!! data_get($whyItems, '1.text', '') !!}
                                         </p>
-                                    </div>
-                                </div>
+        </div>
+      </div>
 
                                 <div class="flex gap-4">
                                     <div class="flex-shrink-0 w-12 h-12 bg-blue-600 text-white rounded-xl flex items-center justify-center">
@@ -294,19 +294,19 @@
                                             stroke-linejoin="round" class="lucide lucide-briefcase">
                                             <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
                                             <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
-                                        </svg>
-                                    </div>
+          </svg>
+        </div>
                                     <div>
                                         <h3 class="text-xl font-bold text-gray-900 mb-2">
                                             {{ data_get($whyItems, '2.title', '') }}
                                         </h3>
                                         <p class="text-gray-600 leading-relaxed">
-                                            {{ data_get($whyItems, '2.text', '') }}
+                                            {!! data_get($whyItems, '2.text', '') !!}
                                         </p>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
+                      </div>
+                    </div>
+                  </div>
 
                         <div class="lg:w-1/2">
                             <div class="relative">
@@ -314,17 +314,17 @@
                                 <img src="{{ $whyChooseUs['image'] ?? asset('assets/images/feature-trust-02ef01c7480a4534b71d70ee2285e0fd.png') }}"
                                     alt="شراكة ناجحة وثقة متبادلة" width="800" height="600"
                                     class="relative w-full rounded-2xl shadow-xl object-cover" loading="lazy" decoding="async">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+              </div>
+            </div>
+            </div>
+      </div>
+    </section>
             <section id="cta" class="py-20 bg-blue-900 relative overflow-hidden" dir="rtl">
                 <div class="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] mix-blend-overlay"></div>
                 <div class="container mx-auto px-4 relative z-10 text-center">
                     <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
                         {{ $cta['title'] ?? 'هل تبحث عن شريك توريد يمكنك الاعتماد عليه؟' }}
-                    </h2>
+            </h2>
                     <p class="text-xl text-blue-100 mb-10 max-w-2xl mx-auto leading-relaxed">
                         {{ $cta['description'] ?? 'انضم إلى قائمة شركائنا الناجحين في القطاع الحكومي والخاص. دعنا نساعدك في تحقيق أهدافك من خلال حلول توريد واستثمار مبتكرة.' }}
                     </p>
@@ -332,14 +332,14 @@
                         <button onclick="openModal()"
                             class="w-full sm:w-auto px-8 py-4 bg-white text-blue-900 rounded-lg font-bold text-lg hover:bg-blue-50 transition-colors shadow-lg cursor-pointer">
                             {{ $cta['primary_button_text'] ?? 'تواصل معنا الآن' }}
-                        </button>
+            </button>
                         <a href="#services"
                             class="w-full sm:w-auto px-8 py-4 bg-transparent border-2 border-white text-white rounded-lg font-bold text-lg hover:bg-white/10 transition-colors">
                             {{ $cta['secondary_button_text'] ?? 'استكشف خدماتنا' }}
                         </a>
-                    </div>
-                </div>
-            </section>
+        </div>
+      </div>
+    </section>
         </main>
 
         <!-- Footer -->
@@ -353,9 +353,9 @@
                             <span class="text-xl font-bold">{{ $footer['brand_text'] ?? 'MT Egypt' }}</span>
                         </div>
                         <p class="text-gray-400 text-sm leading-relaxed">
-                            {{ $footer['description'] ?? 'شريكك الاستراتيجي في التوريدات العامة والاستثمار وتكنولوجيا المعلومات. نخدم القطاعين الحكومي والخاص منذ عام 2020.' }}
+                            {!! $footer['description'] ?? 'شريكك الاستراتيجي في التوريدات العامة والاستثمار وتكنولوجيا المعلومات. نخدم القطاعين الحكومي والخاص منذ عام 2020.' !!}
                         </p>
-                    </div>
+          </div>
 
                     <!-- Quick Links -->
                     <div>
@@ -383,7 +383,7 @@
                                 </li>
                             @endforeach
                         </ul>
-                    </div>
+                  </div>
 
                     <!-- Contact Info -->
                     <div>
@@ -403,13 +403,13 @@
                             </li>
                         </ul>
                     </div>
-                </div>
+                  </div>
 
                 <div class="border-t border-gray-800 pt-8 text-center">
                     <p class="text-gray-500 text-sm">
                         {{ $footer['copyright'] ?? '© 2024 MT Egypt للتوريدات والاستثمار. جميع الحقوق محفوظة.' }}
                     </p>
-                </div>
+              </div>
             </div>
         </footer>
 
@@ -453,15 +453,15 @@
                                                             class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 px-3">
                                                         <input type="number" name="quantity[]" placeholder="الكمية" required
                                                             class="block w-24 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6 px-3">
-                                                    </div>
+          </div>
                                                 </div>
                                             <button type="button" onclick="addProduct()"
                                                     class="mt-3 inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-500">
                                                 <i data-lucide="plus" class="w-4 h-4 ml-1"></i>
                                                 {{ $quoteModal['add_product_text'] ?? 'إضافة منتج آخر' }}
                                                 </button>
-                                            </div>
-                                        </div>
+        </div>
+      </div>
                                         <div class="mt-5 sm:mt-6 sm:grid sm:grid-flow-row-dense sm:grid-cols-2 sm:gap-3">
                                             <button type="submit"
                                                 class="inline-flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600 sm:col-start-2">
@@ -471,15 +471,15 @@
                                                 class="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:col-start-1 sm:mt-0">
                                                 {{ $quoteModal['cancel_text'] ?? 'إلغاء' }}
                                             </button>
-                                        </div>
+          </div>
                                     </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
+  </div>
 
         <!-- Initialize Lucide Icons & Modal Script -->
         <script>
@@ -514,5 +514,5 @@
                 alert(@json(session('quote_success')));
             </script>
         @endif
-    </body>
+</body>
 </html>
