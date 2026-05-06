@@ -161,32 +161,32 @@
 
                 <div class="team-track" id="doctorsTrack">
                     <article class="doctor-card">
-                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=800&auto=format&fit=crop" alt="د. أحمد العتيبي">
+                        <img src="https://images.pexels.com/photos/5327580/pexels-photo-5327580.jpeg?auto=compress&cs=tinysrgb&w=800" alt="د. أحمد العتيبي" onerror="this.onerror=null;this.src='{{ asset('landing/logo.png') }}';">
                         <h3>د. أحمد العتيبي</h3>
                         <p>استشاري العلاج الطبيعي العصبي وتأهيل ما بعد الجلطات.</p>
                     </article>
                     <article class="doctor-card">
-                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop" alt="د. سارة القحطاني">
+                        <img src="https://images.pexels.com/photos/5215024/pexels-photo-5215024.jpeg?auto=compress&cs=tinysrgb&w=800" alt="د. سارة القحطاني" onerror="this.onerror=null;this.src='{{ asset('landing/logo.png') }}';">
                         <h3>د. سارة القحطاني</h3>
                         <p>أخصائية علاج طبيعي لصحة المرأة وتأهيل ما بعد الولادة.</p>
                     </article>
                     <article class="doctor-card">
-                        <img src="https://images.unsplash.com/photo-1612277795421-9bc7706a4a41?q=80&w=800&auto=format&fit=crop" alt="د. محمد الشهري">
+                        <img src="https://images.pexels.com/photos/6129048/pexels-photo-6129048.jpeg?auto=compress&cs=tinysrgb&w=800" alt="د. محمد الشهري" onerror="this.onerror=null;this.src='{{ asset('landing/logo.png') }}';">
                         <h3>د. محمد الشهري</h3>
                         <p>أخصائي تأهيل رياضي وإصابات الملاعب واستعادة الأداء.</p>
                     </article>
                     <article class="doctor-card">
-                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop" alt="د. نورة العنزي">
+                        <img src="https://images.pexels.com/photos/5726708/pexels-photo-5726708.jpeg?auto=compress&cs=tinysrgb&w=800" alt="د. نورة العنزي" onerror="this.onerror=null;this.src='{{ asset('landing/logo.png') }}';">
                         <h3>د. نورة العنزي</h3>
                         <p>أخصائية العلاج الوظيفي والتأهيل الحركي لكبار السن.</p>
                     </article>
                     <article class="doctor-card">
-                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=800&auto=format&fit=crop" alt="د. خالد الحربي">
+                        <img src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=800" alt="د. خالد الحربي" onerror="this.onerror=null;this.src='{{ asset('landing/logo.png') }}';">
                         <h3>د. خالد الحربي</h3>
                         <p>استشاري التأهيل الروبوتي واضطرابات المشي والتوازن.</p>
                     </article>
                     <article class="doctor-card">
-                        <img src="https://images.unsplash.com/photo-1594824475317-d33b0c125bb2?q=80&w=800&auto=format&fit=crop" alt="د. ريم المطيري">
+                        <img src="https://images.pexels.com/photos/7089401/pexels-photo-7089401.jpeg?auto=compress&cs=tinysrgb&w=800" alt="د. ريم المطيري" onerror="this.onerror=null;this.src='{{ asset('landing/logo.png') }}';">
                         <h3>د. ريم المطيري</h3>
                         <p>أخصائية تأهيل الأطفال والتدخل المبكر للحالات النمائية.</p>
                     </article>
