@@ -156,9 +156,11 @@
                                 {{ $hero['title'] ?? 'شريكك الاستراتيجي في' }}
                                 <span class="text-blue-700">{{ $hero['highlight'] ?? 'التوريدات والاستثمار' }}</span>
         </h1>
-                            <p class="mt-6 text-lg leading-8 text-slate-600">
-                                {!! $hero['description'] ?? 'نقدم حلولاً متكاملة في مجالات التوريدات العامة، الاستثمار، وتكنولوجيا المعلومات. نعتز بخدمة القطاعين الحكومي والخاص في مصر منذ عام 2020.' !!}
-                            </p>
+                            <div class="mt-6 text-lg leading-8 text-slate-600">
+                                {!! isset($hero['description'])
+                                    ? html_entity_decode($hero['description'])
+                                    : 'نقدم حلولاً متكاملة في مجالات التوريدات العامة، الاستثمار، وتكنولوجيا المعلومات. نعتز بخدمة القطاعين الحكومي والخاص في مصر منذ عام 2020.' !!}
+                            </div>
                             <div class="mt-8 flex flex-wrap gap-4">
                                 <button onclick="openModal()"
                                     class="rounded-lg bg-blue-700 px-6 py-3 text-base font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-700 cursor-pointer">
@@ -243,9 +245,11 @@
                             <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-6 leading-tight">
                                 {{ $whyChooseUs['title'] ?? 'شريك استراتيجي موثوق للقطاعين الحكومي والخاص' }}
                             </h2>
-                            <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                                {!! $whyChooseUs['description'] ?? 'منذ تأسيسنا في عام 2020، استطعنا بناء سمعة قوية قائمة على الالتزام والجودة. نفخر بتنفيذ أكثر من 950 عملية توريد ناجحة، مما يجعلنا الخيار الأمثل لتلبية احتياجاتكم.' !!}
-                            </p>
+                            <div class="text-lg text-gray-600 mb-8 leading-relaxed">
+                                {!! isset($whyChooseUs['description'])
+                                    ? html_entity_decode($whyChooseUs['description'])
+                                    : 'منذ تأسيسنا في عام 2020، استطعنا بناء سمعة قوية قائمة على الالتزام والجودة. نفخر بتنفيذ أكثر من 950 عملية توريد ناجحة، مما يجعلنا الخيار الأمثل لتلبية احتياجاتكم.' !!}
+                            </div>
 
                             <div class="space-y-8">
                                 <div class="flex gap-4">
@@ -261,9 +265,9 @@
                                         <h3 class="text-xl font-bold text-gray-900 mb-2">
                                             {{ data_get($whyItems, '0.title', '') }}
                                         </h3>
-                                        <p class="text-gray-600 leading-relaxed">
-                                            {!! data_get($whyItems, '0.text', '') !!}
-                                        </p>
+                                        <div class="text-gray-600 leading-relaxed">
+                                            {!! html_entity_decode(data_get($whyItems, '0.text', '')) !!}
+          </div>
         </div>
       </div>
 
@@ -281,9 +285,9 @@
                                         <h3 class="text-xl font-bold text-gray-900 mb-2">
                                             {{ data_get($whyItems, '1.title', '') }}
                                         </h3>
-                                        <p class="text-gray-600 leading-relaxed">
-                                            {!! data_get($whyItems, '1.text', '') !!}
-                                        </p>
+                                        <div class="text-gray-600 leading-relaxed">
+                                            {!! html_entity_decode(data_get($whyItems, '1.text', '')) !!}
+            </div>
         </div>
       </div>
 
@@ -300,9 +304,9 @@
                                         <h3 class="text-xl font-bold text-gray-900 mb-2">
                                             {{ data_get($whyItems, '2.title', '') }}
                                         </h3>
-                                        <p class="text-gray-600 leading-relaxed">
-                                            {!! data_get($whyItems, '2.text', '') !!}
-                                        </p>
+                                        <div class="text-gray-600 leading-relaxed">
+                                            {!! html_entity_decode(data_get($whyItems, '2.text', '')) !!}
+                                        </div>
                                     </div>
                       </div>
                     </div>
@@ -351,10 +355,12 @@
                         <div class="flex items-center gap-2 mb-4">
                             <i data-lucide="package" class="w-6 h-6 text-secondary"></i>
                             <span class="text-xl font-bold">{{ $footer['brand_text'] ?? 'MT Egypt' }}</span>
-                        </div>
-                        <p class="text-gray-400 text-sm leading-relaxed">
-                            {!! $footer['description'] ?? 'شريكك الاستراتيجي في التوريدات العامة والاستثمار وتكنولوجيا المعلومات. نخدم القطاعين الحكومي والخاص منذ عام 2020.' !!}
-                        </p>
+            </div>
+                        <div class="text-gray-400 text-sm leading-relaxed">
+                            {!! isset($footer['description'])
+                                ? html_entity_decode($footer['description'])
+                                : 'شريكك الاستراتيجي في التوريدات العامة والاستثمار وتكنولوجيا المعلومات. نخدم القطاعين الحكومي والخاص منذ عام 2020.' !!}
+              </div>
           </div>
 
                     <!-- Quick Links -->
