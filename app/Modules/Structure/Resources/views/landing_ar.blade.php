@@ -17,7 +17,7 @@
             <div class="nav-logo">
                 <img src="{{ asset('landing/logo.png') }}" alt="المركز التشيكي لإعادة التأهيل">
             </div>
-            
+
             <nav class="nav-links">
                 <a href="#" class="nav-link">خدماتنا العلاجية</a>
                 <a href="#" class="nav-link">الطاقم الطبي</a>
@@ -75,10 +75,10 @@
     <!-- Journey Section -->
     <section class="container" style="padding: 100px 0; text-align: center;">
         <h2 class="section-title">شاهد رحلة علاجك</h2>
-        <div id="video-container" 
+        <div id="video-container"
              style="width: 100%; height: 600px; background: var(--bg-purple); border-radius: 20px; position: relative; overflow: hidden; cursor: pointer;"
              onclick="this.querySelector('#video-overlay').style.display='none'; this.querySelector('#main-video').style.display='block'; this.querySelector('#main-video').play();">
-            
+
             <div id="video-overlay" style="width: 100%; height: 100%; position: absolute; z-index: 2;">
                 <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?q=80&w=2070&auto=format&fit=crop" alt="Video Placeholder" style="width: 100%; height: 100%; object-fit: cover;">
                 <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
@@ -88,7 +88,7 @@
                 </div>
             </div>
             <video id="main-video" style="width: 100%; height: 100%; object-fit: cover; display: none;" controls>
-                <source src="http://mtarek.azq1.com/czech/videos/About_Home_Care.mov" type="video/quicktime">
+                <source src="https://mtarek.azq1.com/czech/videos/About_Home_Care.mov" type="video/quicktime">
             </video>
         </div>
     </section>
@@ -102,7 +102,7 @@
                 </div>
                 <button class="btn btn-primary" style="margin-bottom: 40px;">احجز موعد الان</button>
             </div>
-            
+
             <div class="services-grid">
                 <div class="service-card" style="background-image: url('https://images.unsplash.com/photo-1581056771107-24ca5f033842?q=80&w=2070&auto=format&fit=crop');">
                     <h3>خدمات تأهيل البالغين</h3>
@@ -131,7 +131,7 @@
             <div style="text-align: center; margin-bottom: 60px;">
                 <h2 style="font-size: 36px; margin-bottom: 15px;">فروعنا داخل مدينة الرياض</h2>
             </div>
-            
+
             <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
                 <div style="background: var(--bg-light); border-radius: 30px; padding: 40px; text-align: right;">
                     <div style="width: 120px; height: 105px; background: var(--accent); margin: 0 0 30px auto; border-radius: 15px; background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400'); background-size: cover; background-position: center;"></div>
