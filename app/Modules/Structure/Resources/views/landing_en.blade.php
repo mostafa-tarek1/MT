@@ -88,8 +88,8 @@
                     </div>
                 </div>
             </div>
-            <video id="main-video" style="width: 100%; height: 100%; object-fit: cover; display: none;" controls>
-                <source src="https://mtarek.azq1.com/czech/videos/About_Home_Care.mov" type="video/quicktime">
+            <video id="main-video" style="width: 100%; height: 100%; object-fit: cover; display: none;" controls playsinline preload="metadata">
+                <source src="https://mtarek.azq1.com/czech/videos/About_Home_Care.mov" type="video/mp4">
             </video>
         </div>
     </section>
@@ -132,11 +132,12 @@
                 <img src="{{ asset('landing/logo.png') }}" alt="Logo" style="width: 50px; height: 50px;">
                 <!-- <img src="logo.png" alt="Logo" > -->
             </div>
-            <p>Copyright © 2026 | All Rights Reserved</p>
+            <p>Copyright Â© 2026 | All Rights Reserved</p>
         </div>
     </footer>
 
     <script src="{{ asset('landing/script.js') }}"></script>
 </body>
 </html>
+
 
