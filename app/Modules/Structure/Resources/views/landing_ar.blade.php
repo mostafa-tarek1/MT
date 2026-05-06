@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -147,14 +147,42 @@
         </div>
     </section>
 
-    <footer class="footer">
+    <footer class="footer" id="footer-contact">
         <div class="container">
             <div class="nav-logo" style="margin-bottom: 30px;">
                 <img src="{{ asset('landing/logo.png') }}" alt="Logo">
             </div>
-            <p>Copyright © 2026 | All Rights Reserved</p>
+
+            <div class="footer-contact-grid">
+                <div>
+                    <h3>معلومات التواصل</h3>
+                    <p>الهاتف: 920002737</p>
+                    <p>واتساب: 0533110066</p>
+                    <p>البريد الإلكتروني: infocz-center.com</p>
+                    <p>الموقع الإلكتروني: www.cz-center.com</p>
+                </div>
+                <div>
+                    <h3>العنوان</h3>
+                    <p>الرياض - حي الياسمين</p>
+                    <p>طريق الملك عبدالعزيز</p>
+                    <p>قريب من سوق التميمي</p>
+                </div>
+            </div>
+
+            <p>Copyright &copy; 2026 | All Rights Reserved</p>
         </div>
     </footer>
+
+    <div id="temporaryNoticeModal" class="notice-modal" aria-hidden="true">
+        <div class="notice-modal__overlay" data-close-notice></div>
+        <div class="notice-modal__card" role="dialog" aria-modal="true" aria-labelledby="noticeModalTitle">
+            <button class="notice-modal__close" type="button" aria-label="إغلاق" data-close-notice>&times;</button>
+            <h2 id="noticeModalTitle">تنويه</h2>
+            <p>هذه نسخة مؤقتة وغير نهائية من الموقع، تم إتاحتها بشكل استثنائي خلال وقت محدود.</p>
+            <p>النسخة الحالية لا تعكس الشكل النهائي أو مستوى الجودة المخطط له، حيث لا يزال العمل جاريًا على النسخة الكاملة التي سيتم إطلاقها قريبًا.</p>
+            <button class="btn btn-primary notice-modal__action" type="button" data-close-notice>تم</button>
+        </div>
+    </div>
 
     <script src="{{ asset('landing/script.js') }}"></script>
 </body>
