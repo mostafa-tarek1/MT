@@ -20,11 +20,11 @@
             
             <nav class="nav-links">
                 <a href="#" class="nav-link">خدماتنا العلاجية</a>
-                <a href="#" class="nav-link">الطاقم الطبي</a>
+                <a href="#medical-team" class="nav-link">الطاقم الطبي</a>
                 <a href="#" class="nav-link">فروعنا</a>
                 <a href="#" class="nav-link">الميديا</a>
                 <a href="#" class="nav-link">حول المركز</a>
-                <a href="#" class="nav-link">اتصل بنا</a>
+                <a href="#footer-contact" class="nav-link">اتصل بنا</a>
                 <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL('en', null, [], true) }}" class="nav-link" style="font-weight: 400;">EN</a>
             </nav>
 
@@ -147,29 +147,145 @@
         </div>
     </section>
 
-    <footer class="footer" id="footer-contact">
+    <section id="medical-team" class="team-section">
         <div class="container">
-            <div class="nav-logo" style="margin-bottom: 30px;">
-                <img src="{{ asset('landing/logo.png') }}" alt="Logo">
+            <div class="team-header">
+                <h2 class="section-title">قابل طاقمنا الطبي</h2>
+                <p class="section-desc">نخبة من الأطباء والأخصائيين بخبرة عملية واسعة، يعملون على بناء خطة علاجية دقيقة لكل حالة لتحقيق أفضل نتائج التأهيل.</p>
             </div>
 
-            <div class="footer-contact-grid">
-                <div>
-                    <h3>معلومات التواصل</h3>
-                    <p>الهاتف: 920002737</p>
-                    <p>واتساب: 0533110066</p>
-                    <p>البريد الإلكتروني: infocz-center.com</p>
-                    <p>الموقع الإلكتروني: www.cz-center.com</p>
+            <div class="team-slider-wrap">
+                <button class="team-nav team-nav-prev" type="button" data-doctors-prev aria-label="السابق">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+
+                <div class="team-track" id="doctorsTrack">
+                    <article class="doctor-card">
+                        <img src="https://images.unsplash.com/photo-1537368910025-700350fe46c7?q=80&w=800&auto=format&fit=crop" alt="د. أحمد العتيبي">
+                        <h3>د. أحمد العتيبي</h3>
+                        <p>استشاري العلاج الطبيعي العصبي وتأهيل ما بعد الجلطات.</p>
+                    </article>
+                    <article class="doctor-card">
+                        <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?q=80&w=800&auto=format&fit=crop" alt="د. سارة القحطاني">
+                        <h3>د. سارة القحطاني</h3>
+                        <p>أخصائية علاج طبيعي لصحة المرأة وتأهيل ما بعد الولادة.</p>
+                    </article>
+                    <article class="doctor-card">
+                        <img src="https://images.unsplash.com/photo-1612277795421-9bc7706a4a41?q=80&w=800&auto=format&fit=crop" alt="د. محمد الشهري">
+                        <h3>د. محمد الشهري</h3>
+                        <p>أخصائي تأهيل رياضي وإصابات الملاعب واستعادة الأداء.</p>
+                    </article>
+                    <article class="doctor-card">
+                        <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?q=80&w=800&auto=format&fit=crop" alt="د. نورة العنزي">
+                        <h3>د. نورة العنزي</h3>
+                        <p>أخصائية العلاج الوظيفي والتأهيل الحركي لكبار السن.</p>
+                    </article>
+                    <article class="doctor-card">
+                        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=800&auto=format&fit=crop" alt="د. خالد الحربي">
+                        <h3>د. خالد الحربي</h3>
+                        <p>استشاري التأهيل الروبوتي واضطرابات المشي والتوازن.</p>
+                    </article>
+                    <article class="doctor-card">
+                        <img src="https://images.unsplash.com/photo-1594824475317-d33b0c125bb2?q=80&w=800&auto=format&fit=crop" alt="د. ريم المطيري">
+                        <h3>د. ريم المطيري</h3>
+                        <p>أخصائية تأهيل الأطفال والتدخل المبكر للحالات النمائية.</p>
+                    </article>
                 </div>
-                <div>
-                    <h3>العنوان</h3>
-                    <p>الرياض - حي الياسمين</p>
-                    <p>طريق الملك عبدالعزيز</p>
-                    <p>قريب من سوق التميمي</p>
+
+                <button class="team-nav team-nav-next" type="button" data-doctors-next aria-label="التالي">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer footer-expanded" id="footer-contact">
+        <div class="partners-strip">
+            <div class="container">
+                <h3>شركاؤنا مع شركات التأمين</h3>
+                <div class="partners-logos">
+                    <span>Google</span>
+                    <span>facebook</span>
+                    <span>YouTube</span>
+                    <span>Pinterest</span>
+                    <span>twitch</span>
+                    <span>webflow</span>
+                </div>
+                <div class="partners-dots">
+                    <span class="is-active"></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="footer-main-top">
+                <div class="footer-contact-block">
+                    <ul>
+                        <li><span class="icon-box"><i class="fas fa-phone"></i></span> رقم الهاتف: 920002737+</li>
+                        <li><span class="icon-box"><i class="fas fa-envelope"></i></span> callcenter@cz-center.com</li>
+                        <li><span class="icon-box"><i class="fas fa-map-marker-alt"></i></span> الرياض - حي الياسمين - طريق الملك عبدالعزيز شمال تقاطع أنس بن مالك بالقرب من سوق التميمي.</li>
+                    </ul>
+                </div>
+
+                <div class="footer-brand-block">
+                    <h3>Logo</h3>
+                    <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة.</p>
+                    <div class="footer-social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Linkedin"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
+                    </div>
                 </div>
             </div>
 
-            <p>Copyright &copy; 2026 | All Rights Reserved</p>
+            <div class="footer-links-area">
+                <div class="footer-links-group">
+                    <h4>حول المركز</h4>
+                    <ul>
+                        <li><a href="#">تعرف علينا</a></li>
+                        <li><a href="#">الأجهزة المستخدمة</a></li>
+                        <li><a href="#">الطاقم الطبي</a></li>
+                        <li><a href="#">قصص نجاح ملهمة</a></li>
+                        <li><a href="#">الأخبار والفعاليات</a></li>
+                        <li><a href="#">اتصل بنا</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-links-group">
+                    <h4>خدماتنا</h4>
+                    <div class="footer-links-columns">
+                        <ul>
+                            <li><a href="#">العلاج المغناطيسي</a></li>
+                            <li><a href="#">العلاج الفيزيائي</a></li>
+                            <li><a href="#">العلاج المهني</a></li>
+                            <li><a href="#">العلاج في المسبح</a></li>
+                            <li><a href="#">علاج الروبوت الأوتوماتيكي</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">العلاج بالأعشاب</a></li>
+                            <li><a href="#">العلاج بالضغط</a></li>
+                            <li><a href="#">العلاج النفسي</a></li>
+                            <li><a href="#">العلاج بالألوان</a></li>
+                            <li><a href="#">العلاج بالطاقة</a></li>
+                        </ul>
+                        <ul>
+                            <li><a href="#">العلاج بالأغذية</a></li>
+                            <li><a href="#">العلاج باليوغا</a></li>
+                            <li><a href="#">العلاج بالتحفيز الكهربائي</a></li>
+                            <li><a href="#">العلاج بالصوت</a></li>
+                            <li><a href="#">العلاج بالحركة</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom-bar">
+                <p>Copyright &copy; 2026 | All Rights Reserved | Terms and Conditions | Privacy Policy</p>
+            </div>
         </div>
     </footer>
 
