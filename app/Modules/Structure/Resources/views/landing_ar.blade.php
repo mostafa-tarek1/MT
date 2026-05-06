@@ -221,16 +221,10 @@
 
         <div class="container">
             <div class="footer-main-top">
-                <div class="footer-contact-block">
-                    <ul>
-                        <li><span class="icon-box"><i class="fas fa-phone"></i></span> رقم الهاتف: 920002737+</li>
-                        <li><span class="icon-box"><i class="fas fa-envelope"></i></span> callcenter@cz-center.com</li>
-                        <li><span class="icon-box"><i class="fas fa-map-marker-alt"></i></span> الرياض - حي الياسمين - طريق الملك عبدالعزيز شمال تقاطع أنس بن مالك بالقرب من سوق التميمي.</li>
-                    </ul>
-                </div>
-
                 <div class="footer-brand-block">
-                    <h3>Logo</h3>
+                    <div class="footer-brand-logo">
+                        <img src="{{ asset('landing/logo.png') }}" alt="المركز التشيكي لإعادة التأهيل">
+                    </div>
                     <p>هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة.</p>
                     <div class="footer-social-icons">
                         <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -239,6 +233,14 @@
                         <a href="#" aria-label="Linkedin"><i class="fab fa-linkedin-in"></i></a>
                         <a href="#" aria-label="Youtube"><i class="fab fa-youtube"></i></a>
                     </div>
+                </div>
+
+                <div class="footer-contact-block">
+                    <ul>
+                        <li><span class="icon-box"><i class="fas fa-phone"></i></span> رقم الهاتف: 920002737+</li>
+                        <li><span class="icon-box"><i class="fas fa-envelope"></i></span> callcenter@cz-center.com</li>
+                        <li><span class="icon-box"><i class="fas fa-map-marker-alt"></i></span> الرياض - حي الياسمين - طريق الملك عبدالعزيز شمال تقاطع أنس بن مالك بالقرب من سوق التميمي.</li>
+                    </ul>
                 </div>
             </div>
 

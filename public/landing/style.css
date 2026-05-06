@@ -434,7 +434,7 @@ img {
 
 .footer-main-top {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: 1.2fr 1fr;
     gap: 60px;
     padding: 52px 0 26px;
     align-items: start;
@@ -463,9 +463,19 @@ img {
     margin-top: 3px;
 }
 
-.footer-brand-block h3 {
-    font-size: 52px;
-    margin-bottom: 10px;
+.footer-brand-block {
+    text-align: center;
+}
+
+.footer-brand-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+
+.footer-brand-logo img {
+    height: 64px;
+    width: auto;
 }
 
 .footer-brand-block p {
@@ -478,6 +488,7 @@ img {
 .footer-social-icons {
     display: flex;
     gap: 8px;
+    justify-content: center;
 }
 
 .footer-social-icons a {
@@ -652,8 +663,8 @@ img {
         grid-template-columns: 1fr;
         font-size: 28px;
     }
-    .footer-brand-block h3 {
-        font-size: 42px;
+    .footer-brand-logo img {
+        height: 54px;
     }
     .footer-links-group h4 {
         font-size: 28px;
