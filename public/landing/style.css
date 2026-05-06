@@ -77,6 +77,22 @@ img {
     padding: 0 40px;
 }
 
+.navbar-shell {
+    gap: 20px;
+}
+
+.hero-actions {
+    flex-wrap: wrap;
+}
+
+.stats-container {
+    gap: 20px;
+}
+
+#video-container {
+    max-width: 100%;
+}
+
 /* Reusable Components */
 .btn {
     display: inline-flex;
@@ -298,6 +314,18 @@ img {
     align-items: center;
     justify-content: space-between;
     min-height: 400px;
+}
+
+.branches-grid {
+    width: 100%;
+}
+
+.branch-card {
+    min-width: 0;
+}
+
+.branch-card h3 {
+    line-height: 1.25;
 }
 
 /* Medical Team */
@@ -598,29 +626,107 @@ img {
 }
 
 /* Responsive */
+@media (max-width: 1200px) {
+    .container {
+        padding: 0 28px;
+    }
+    .nav-links {
+        gap: 18px;
+    }
+    .nav-link {
+        font-size: 16px;
+    }
+    .btn {
+        padding: 12px 20px;
+    }
+    .section-title {
+        font-size: 48px;
+    }
+    .hero {
+        gap: 40px;
+    }
+    .hero-image-container {
+        height: 480px;
+    }
+    .partners-logos {
+        font-size: 30px;
+    }
+}
+
 @media (max-width: 1024px) {
+    .container {
+        padding: 0 24px;
+    }
+    .navbar {
+        height: auto;
+        padding: 16px 0;
+    }
+    .navbar-shell {
+        flex-wrap: wrap;
+        justify-content: center !important;
+    }
+    .nav-logo {
+        flex: 1 0 auto;
+    }
     .hero {
         grid-template-columns: 1fr;
         text-align: center;
+        padding: 56px 0;
     }
     .hero-content {
         order: 2;
     }
     .hero-image-container {
         order: 1;
+        height: 420px;
+    }
+    .section-desc {
+        margin-right: auto;
+        margin-left: auto;
+    }
+    .hero-actions {
+        justify-content: center;
     }
     .nav-links {
         display: none;
     }
+    .stats-container {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .journey-section {
+        padding: 70px 24px !important;
+    }
+    #video-container {
+        height: 430px !important;
+    }
     .services-grid {
         grid-template-columns: 1fr;
+    }
+    .services-section {
+        padding: 70px 0;
+    }
+    .services-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 18px;
     }
     .service-full {
         grid-column: span 1;
         flex-direction: column;
     }
+    .branches-section {
+        padding: 70px 0 !important;
+    }
+    .branches-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
     .team-nav {
         display: none;
+    }
+    .team-header {
+        margin: 0 0 34px;
     }
     .partners-logos {
         grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -640,6 +746,105 @@ img {
 }
 
 @media (max-width: 720px) {
+    .container {
+        padding: 0 18px;
+    }
+    .navbar-shell {
+        flex-direction: column;
+        align-items: stretch !important;
+    }
+    .nav-logo {
+        justify-content: center;
+    }
+    .nav-logo img {
+        height: 52px;
+    }
+    .nav-actions {
+        width: 100%;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .btn {
+        width: 100%;
+        min-height: 48px;
+        font-size: 15px;
+        text-align: center;
+    }
+    .section-title {
+        font-size: 36px;
+        line-height: 1.25;
+    }
+    .section-desc {
+        font-size: 16px;
+        margin-bottom: 26px;
+    }
+    .hero {
+        padding: 38px 0;
+        gap: 28px;
+    }
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    .hero-image-container {
+        height: 300px;
+        border-radius: 22px;
+    }
+    .stats-bar {
+        padding: 42px 0;
+    }
+    .stats-container {
+        grid-template-columns: 1fr;
+    }
+    .stat-item h3 {
+        font-size: 36px;
+    }
+    .stat-item p {
+        font-size: 19px;
+    }
+    .journey-section {
+        padding: 52px 18px !important;
+    }
+    #video-container {
+        height: 260px !important;
+        border-radius: 18px !important;
+    }
+    #play-button,
+    .play-button {
+        width: 72px !important;
+        height: 72px !important;
+    }
+    .services-section {
+        padding: 56px 0;
+    }
+    .services-header {
+        margin-bottom: 34px;
+    }
+    .service-card {
+        min-height: 360px;
+        padding: 26px;
+        border-radius: 18px;
+    }
+    .service-card h3 {
+        font-size: 24px;
+    }
+    .service-card p {
+        font-size: 16px;
+    }
+    .branches-section {
+        padding: 56px 0 !important;
+    }
+    .branch-card {
+        padding: 26px !important;
+        border-radius: 22px !important;
+    }
+    .branch-card h3 {
+        font-size: 28px !important;
+    }
+    .branch-thumb {
+        width: 96px !important;
+        height: 84px !important;
+    }
     .team-section {
         padding: 70px 0;
     }
@@ -649,6 +854,7 @@ img {
     .doctor-card {
         min-width: 260px;
         max-width: 260px;
+        border-radius: 16px;
     }
     .doctor-card img {
         height: 220px;
@@ -661,12 +867,78 @@ img {
     }
     .partners-logos {
         grid-template-columns: 1fr;
-        font-size: 28px;
+        font-size: 26px;
+        gap: 10px;
+    }
+    .footer-main-top {
+        padding: 40px 0 22px;
+    }
+    .footer-brand-block p {
+        font-size: 16px;
+    }
+    .footer-contact-block ul li {
+        font-size: 15px;
+    }
+    .footer-links-area {
+        padding-bottom: 24px;
     }
     .footer-brand-logo img {
         height: 54px;
     }
     .footer-links-group h4 {
         font-size: 28px;
+    }
+    .notice-modal__card {
+        width: calc(100% - 28px);
+        max-height: calc(100vh - 48px);
+        overflow-y: auto;
+        margin-top: 24px;
+        padding: 24px 20px 20px;
+        border-radius: 18px;
+    }
+    .notice-modal__card h2 {
+        font-size: 28px;
+    }
+    .notice-modal__card p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        padding: 0 14px;
+    }
+    .section-title {
+        font-size: 31px;
+    }
+    .hero-image-container {
+        height: 240px;
+    }
+    #video-container {
+        height: 220px !important;
+    }
+    .service-card {
+        min-height: 320px;
+        padding: 22px;
+    }
+    .branch-card h3 {
+        font-size: 24px !important;
+    }
+    .doctor-card {
+        min-width: 232px;
+        max-width: 232px;
+    }
+    .doctor-card img {
+        height: 200px;
+    }
+    .doctor-card h3 {
+        font-size: 26px;
+    }
+    .partners-strip h3 {
+        font-size: 31px;
+    }
+    .footer-bottom-bar p {
+        font-size: 14px;
+        line-height: 1.8;
     }
 }

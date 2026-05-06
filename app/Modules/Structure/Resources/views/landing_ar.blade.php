@@ -13,7 +13,7 @@
 
     <!-- Header / Navbar -->
     <header class="navbar">
-        <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
+        <div class="container navbar-shell" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
             <div class="nav-logo">
                 <img src="{{ asset('landing/logo.png') }}" alt="المركز التشيكي لإعادة التأهيل">
             </div>
@@ -40,7 +40,7 @@
         <div class="hero-content">
             <h1 class="section-title">مركز إعادة تأهيل بخبرات<br>طبية تشيكية</h1>
             <p class="section-desc">افضل خدمات إعادة تأهيل طبي بأيدي فريق عالمي لمساعدتك على الشفاء التام باسرع وقت وبرفاهية تامة</p>
-            <div style="display: flex; gap: 24px;">
+            <div class="hero-actions" style="display: flex; gap: 24px;">
                 <button class="btn btn-primary">احجز موعد الان <i class="fas fa-chevron-left"></i></button>
                 <button class="btn btn-outline">تحدث معنا للإجابة على استفساراتك</button>
             </div>
@@ -52,7 +52,7 @@
 
     <!-- Stats Bar -->
     <section class="stats-bar">
-        <div class="container" style="display: flex; justify-content: space-around; width: 100%;">
+        <div class="container stats-container" style="display: flex; justify-content: space-around; width: 100%;">
             <div class="stat-item">
                 <h3>15<span>+</span></h3>
                 <p>سنة خبرة</p>
@@ -73,7 +73,7 @@
     </section>
 
     <!-- Journey Section -->
-    <section class="container" style="padding: 100px 0; text-align: center;">
+    <section class="container journey-section" style="padding: 100px 0; text-align: center;">
         <h2 class="section-title">شاهد رحلة علاجك</h2>
         <div id="video-container" 
              style="width: 100%; height: 600px; background: var(--bg-purple); border-radius: 20px; position: relative; overflow: hidden; cursor: pointer;"
@@ -126,20 +126,20 @@
     </section>
 
     <!-- Branches Section -->
-    <section style="background: var(--bg-lavender); padding: 100px 0;">
+    <section class="branches-section" style="background: var(--bg-lavender); padding: 100px 0;">
         <div class="container">
             <div style="text-align: center; margin-bottom: 60px;">
                 <h2 style="font-size: 36px; margin-bottom: 15px;">فروعنا داخل مدينة الرياض</h2>
             </div>
             
-            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
-                <div style="background: var(--bg-light); border-radius: 30px; padding: 40px; text-align: right;">
-                    <div style="width: 120px; height: 105px; background: var(--accent); margin: 0 0 30px auto; border-radius: 15px; background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400'); background-size: cover; background-position: center;"></div>
+            <div class="branches-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px;">
+                <div class="branch-card" style="background: var(--bg-light); border-radius: 30px; padding: 40px; text-align: right;">
+                    <div class="branch-thumb" style="width: 120px; height: 105px; background: var(--accent); margin: 0 0 30px auto; border-radius: 15px; background-image: url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=400'); background-size: cover; background-position: center;"></div>
                     <h3 style="font-size: 36px; margin-bottom: 15px;">المركز التشيكي للسيدات</h3>
                     <p style="color: var(--text-muted);">Prince Nasser Bin Farhan St, حي الملك سلمان، الرياض</p>
                 </div>
-                <div style="background: var(--bg-light); border-radius: 30px; padding: 40px; text-align: right;">
-                    <div style="width: 120px; height: 105px; background: var(--accent); margin: 0 0 30px auto; border-radius: 15px; background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=400'); background-size: cover; background-position: center;"></div>
+                <div class="branch-card" style="background: var(--bg-light); border-radius: 30px; padding: 40px; text-align: right;">
+                    <div class="branch-thumb" style="width: 120px; height: 105px; background: var(--accent); margin: 0 0 30px auto; border-radius: 15px; background-image: url('https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&w=400'); background-size: cover; background-position: center;"></div>
                     <h3 style="font-size: 36px; margin-bottom: 15px;">المركز التشيكي للرجال</h3>
                     <p style="color: var(--text-muted);">طريق الملك عبدالعزيز الفرعي، الياسمين، الرياض</p>
                 </div>
