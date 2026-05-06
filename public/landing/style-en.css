@@ -1,0 +1,57 @@
+/* 
+  English (LTR) CSS Overrides 
+*/
+
+@import url('style.css');
+
+body {
+    direction: ltr !important;
+    text-align: left !important;
+}
+
+/* Reset slider direction for English since the page is already LTR */
+.slider-container, .swiper-container, .carousel {
+    direction: ltr !important;
+}
+
+/* Nav adjustments */
+.nav-links {
+    flex-direction: row;
+}
+
+/* Section titles and descriptions */
+.section-title, .section-desc {
+    text-align: left;
+}
+
+/* Footer adjustments */
+.footer-top {
+    text-align: left;
+}
+
+.footer-top ul {
+    align-items: flex-start;
+}
+
+/* Button icon adjustment */
+.btn i {
+    transform: rotate(180deg);
+}
+
+/* Hero content order for LTR */
+.hero-content {
+    order: 1;
+}
+
+.hero-image-container {
+    order: 2;
+}
+
+@media (max-width: 1024px) {
+    .hero-content {
+        order: 2;
+    }
+    .hero-image-container {
+        order: 1;
+    }
+}

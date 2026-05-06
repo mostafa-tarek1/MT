@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>المركز التشيكي لإعادة التأهيل | خبيرك الطبي في الرياض</title>
     <meta name="description" content="مركز إعادة تأهيل متكامل بخبرات طبية تشيكية تزيد عن 15 سنة. نقدم أفضل خدمات العلاج الطبيعي والتأهيل في الرياض.">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{ asset('landing/style.css') }}">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -15,7 +15,7 @@
     <header class="navbar">
         <div class="container" style="display: flex; justify-content: space-between; width: 100%; align-items: center;">
             <div class="nav-logo">
-                <img src="logo.png" alt="المركز التشيكي لإعادة التأهيل">
+                <img src="{{ asset('landing/logo.png') }}" alt="المركز التشيكي لإعادة التأهيل">
             </div>
             
             <nav class="nav-links">
@@ -25,7 +25,7 @@
                 <a href="#" class="nav-link">الميديا</a>
                 <a href="#" class="nav-link">حول المركز</a>
                 <a href="#" class="nav-link">اتصل بنا</a>
-                <a href="en.html" class="nav-link" style="font-weight: 400;">EN</a>
+                <a href="{{ \Mcamara\LaravelLocalization\Facades\LaravelLocalization::getLocalizedURL('en', null, [], true) }}" class="nav-link" style="font-weight: 400;">EN</a>
             </nav>
 
             <div class="nav-actions">
@@ -150,12 +150,13 @@
     <footer class="footer">
         <div class="container">
             <div class="nav-logo" style="margin-bottom: 30px;">
-                <img src="logo.png" alt="Logo">
+                <img src="{{ asset('landing/logo.png') }}" alt="Logo">
             </div>
             <p>Copyright © 2026 | All Rights Reserved</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="{{ asset('landing/script.js') }}"></script>
 </body>
 </html>
+
