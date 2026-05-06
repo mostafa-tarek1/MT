@@ -88,7 +88,7 @@
                 </div>
             </div>
             <video id="main-video" style="width: 100%; height: 100%; object-fit: cover; display: none;" controls>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                <source src="http://mtarek.azq1.com/czech/videos/About_Home_Care.mov" type="video/quicktime">
             </video>
         </div>
     </section>
